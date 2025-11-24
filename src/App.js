@@ -150,17 +150,17 @@ export default function App() {
   // Définition du chemin d'accès conceptuel pour le logo BDE
   const bdeLogoPath = "/assets/images/logo_bde_efet.png";
 
-  // Données
+  // Data
   const projects = [
-    { title: "KhedmatMaroc", subtitle: "Plateforme Services", detail: "PHP, Architecture, UX" },
-    { title: "F1 Analytics", subtitle: "Dashboard Temps Réel", detail: "React, D3.js, API", link: "https://f1-velocity-analytics.vercel.app" },
-    { title: "DataInsight AI", subtitle: "Machine Learning", detail: "Python, Pandas, Streamlit" },
+    { title: "KhedmatMaroc", subtitle: "Services Platform", detail: "PHP, Architecture, UX", link: "/projects/khedmatmaroc.html" },
+    { title: "F1 Analytics", subtitle: "Real-Time Dashboard", detail: "React, D3.js, API", link: "https://f1-velocity-analytics.vercel.app" },
+    { title: "DataInsight AI", subtitle: "Machine Learning", detail: "Python, Pandas, Streamlit", link: "https://data-insight-ai-tau.vercel.app" },
   ];
 
   const certs = [
     { title: "IBM Data Science", subtitle: "Professional Cert", detail: "Python, AI, 95%" },
     { title: "Google Analytics", subtitle: "Advanced Tracking", detail: "Data, SEO, Conversion" },
-    { title: "ALX AI Career", subtitle: "Intelligence Artificielle", detail: "Top 10%, NLP, Ethics" },
+    { title: "ALX AI Career", subtitle: "Artificial Intelligence", detail: "Top 10%, NLP, Ethics" },
   ];
 
   return (
@@ -211,15 +211,15 @@ export default function App() {
                             Portfolio 2026
                          </h2>
                     </div>
-                    
+
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.1] mb-6 md:mb-8">
                         Designing <span className="text-zinc-600">Intelligence</span>.<br />
                         Coding <span className="text-zinc-600">Performance</span>.
                     </h1>
 
                     <p className="text-base md:text-lg lg:text-xl text-zinc-400 max-w-xl leading-relaxed">
-                        Je suis <strong className="text-white">Hatim Lamarti</strong>, Développeur Full Stack & Data Scientist.
-                        Je conçois des architectures digitales robustes et des solutions IA sur mesure pour les entreprises exigeantes.
+                        I'm <strong className="text-white">Hatim Lamarti</strong>, Full Stack Developer & Data Scientist.
+                        I design robust digital architectures and custom AI solutions for demanding businesses.
                     </p>
                 </motion.div>
 
@@ -230,10 +230,10 @@ export default function App() {
                     className="mt-8 md:mt-12 flex flex-wrap gap-4 md:gap-6"
                 >
                     <MagneticButton href="#work" className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-full font-medium text-xs md:text-sm uppercase tracking-wider hover:bg-zinc-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-                        Voir mes projets
+                        View Projects
                     </MagneticButton>
                     <MagneticButton href="mailto:hatimlamarti3@gmail.com" className="border border-white/20 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-medium text-xs md:text-sm uppercase tracking-wider hover:bg-white/10">
-                        Me contacter
+                        Contact Me
                     </MagneticButton>
                 </motion.div>
             </div>
@@ -247,7 +247,7 @@ export default function App() {
                     className="space-y-2 group cursor-default text-center md:text-right"
                  >
                      <span className="block text-4xl md:text-6xl font-light text-white group-hover:text-blue-400 transition-colors duration-500">11+</span>
-                     <span className="block text-[10px] md:text-xs font-mono uppercase tracking-widest text-zinc-500">Projets Livrés</span>
+                     <span className="block text-[10px] md:text-xs font-mono uppercase tracking-widest text-zinc-500">Projects Delivered</span>
                  </motion.div>
 
                  <div className="w-[1px] h-12 md:w-full md:h-[1px] bg-white/10"></div>
@@ -296,24 +296,24 @@ export default function App() {
                          <img src={bdeLogoPath} alt="BDE EFET Logo" className="w-10 h-10 md:w-12 md:h-12" />
                    </div>
                     <div>
-                        <p className="text-base md:text-xl lg:text-2xl font-normal text-white">Vice-Président – Bureau des Étudiants (BDE EFET)</p>
-                        <p className="text-xs md:text-sm font-mono text-zinc-500 uppercase tracking-wider md:tracking-widest">BDE EFET – École de Formation en Technologies (EFET)</p>
+                        <p className="text-base md:text-xl lg:text-2xl font-normal text-white">Vice President – Student Bureau (BDE EFET)</p>
+                        <p className="text-xs md:text-sm font-mono text-zinc-500 uppercase tracking-wider md:tracking-widest">BDE EFET – School of Technology Training (EFET)</p>
                     </div>
                 </div>
                 
                 {/* Content (Responsabilités & Accomplissement) */}
                 <div className="mt-auto relative z-20 max-w-4xl pt-8 border-t border-white/10">
-                    <p className="text-xs font-mono text-zinc-600 uppercase tracking-widest mb-4">sept. 2025 - aujourd’hui · Casablanca-Settat, Maroc</p>
+                    <p className="text-xs font-mono text-zinc-600 uppercase tracking-widest mb-4">Sept. 2025 - Present · Casablanca-Settat, Morocco</p>
                     <p className="text-lg text-zinc-400 leading-relaxed mb-4">
-                        Vice-Président du Bureau des Étudiants de l’EFET, responsable de la coordination stratégique, de l'organisation d'événements et de la gestion opérationnelle du BDE.
+                        Vice President of EFET Student Bureau, responsible for strategic coordination, event organization, and operational management of the BDE.
                     </p>
                    
                     
                     <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
                         <h4 className="text-xs font-mono font-medium text-blue-300 flex items-center gap-2 mb-1 uppercase tracking-widest">
-                            Accomplissement Notable <ArrowUpRight size={14} />
+                            Notable Achievement <ArrowUpRight size={14} />
                         </h4>
-                        <p className="text-sm text-zinc-400">Lancement du site web officiel du BDE : <a href="https://bde-efet.vercel.app" target="_blank" className="text-blue-400 underline hover:text-blue-300 transition-colors">bde-efet.vercel.app</a></p>
+                        <p className="text-sm text-zinc-400">Launch of official BDE website: <a href="https://bde-efet.vercel.app" target="_blank" className="text-blue-400 underline hover:text-blue-300 transition-colors">bde-efet.vercel.app</a></p>
                     </div>
                 </div>
                 
@@ -445,19 +445,19 @@ export default function App() {
                         </span>
                      </div>
                      <p className="text-zinc-500 font-mono text-xs md:text-sm">
-                        {copied ? "Email copié dans le presse-papier !" : "Cliquez pour copier"}
+                        {copied ? "Email copied to clipboard!" : "Click to copy"}
                      </p>
                  </div>
              </div>
 
              <div className="mt-16 md:mt-32 border-t border-zinc-300 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-[10px] md:text-xs font-mono uppercase tracking-widest text-zinc-500 text-center md:text-left">
-                 <span className="order-2 md:order-1">© 2026 LAMARTI HATIM. ALL RIGHTS RESERVED.</span>
+                 <span className="order-2 md:order-1">© 2026 HATIM LAMARTI. ALL RIGHTS RESERVED.</span>
                  <div className="flex gap-6 md:gap-8 order-1 md:order-2">
                      <a href="https://www.instagram.com/laamarti_hatim" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Instagram</a>
                      <a href="https://www.linkedin.com/in/lamartihatim/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">LinkedIn</a>
                      <a href="https://github.com/hatim3310" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">GitHub</a>
                  </div>
-                 <span className="order-3">CASABLANCA, MAROC</span>
+                 <span className="order-3">CASABLANCA, MOROCCO</span>
              </div>
          </motion.div>
       </footer>
