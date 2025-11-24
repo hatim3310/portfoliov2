@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Github, Linkedin, Mail, MapPin, Globe, Database, ShieldCheck, Copy, Check, ChevronDown } from 'lucide-react';
-
+import { Analytics } from "@vercel/analytics/react"
 // --- UTILS & COMPONENTS ---
 
 // 1. Background "Aurora" (Luxe & Profondeur)
@@ -164,30 +164,38 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen text-zinc-100 font-sans selection:bg-white selection:text-black overflow-x-hidden cursor-default">
-      
+    <>
+      <Analytics />
+      <div className="min-h-screen text-zinc-100 font-sans selection:bg-white selection:text-black overflow-x-hidden cursor-default">
+
       <AuroraBackground />
       
       {/* --- NAV FLOTTANTE MINIMALISTE --- */}
-      <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
-        <div className="pointer-events-auto flex items-center gap-1 rounded-full bg-black/40 border border-white/10 p-1.5 backdrop-blur-xl shadow-2xl">
-          <img src="/assets/images/logo_hatim.png" alt="Logo" className="h-8 w-8 rounded-full mr-2" />
-          {['Work', 'Expertise', 'About'].map((link) => (
-            <button key={link} className="rounded-full px-6 py-2.5 text-xs font-medium uppercase tracking-widest text-zinc-400 transition-all hover:bg-white hover:text-black hover:scale-105">
-              {link}
-            </button>
-          ))}
-          <MagneticButton 
-            href="mailto:hatimlamarti3@gmail.com" 
-            className="ml-2 rounded-full bg-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-black hover:bg-zinc-200"
-          >
-            Contact
-          </MagneticButton>
+      <nav className="fixed top-4 md:top-6 left-4 right-4 md:left-0 md:right-0 z-50 flex justify-center pointer-events-none">
+        <div className="pointer-events-auto flex items-center gap-0.5 md:gap-1 rounded-full bg-black/40 border border-white/10 p-1 md:p-1.5 backdrop-blur-xl shadow-2xl w-full md:w-auto justify-between md:justify-center">
+          <img src="/assets/images/logo_hatim.png" alt="Logo" className="h-7 w-7 md:h-8 md:w-8 rounded-full ml-1 md:mr-2" />
+          <div className="flex items-center gap-0.5 md:gap-1">
+            <a href="#work" className="rounded-full px-3 md:px-6 py-2 md:py-2.5 text-[10px] md:text-xs font-medium uppercase tracking-wider md:tracking-widest text-zinc-400 transition-all hover:bg-white hover:text-black hover:scale-105">
+              Work
+            </a>
+            <a href="#expertise" className="rounded-full px-3 md:px-6 py-2 md:py-2.5 text-[10px] md:text-xs font-medium uppercase tracking-wider md:tracking-widest text-zinc-400 transition-all hover:bg-white hover:text-black hover:scale-105">
+              Expertise
+            </a>
+            <a href="#about" className="rounded-full px-3 md:px-6 py-2 md:py-2.5 text-[10px] md:text-xs font-medium uppercase tracking-wider md:tracking-widest text-zinc-400 transition-all hover:bg-white hover:text-black hover:scale-105">
+              About
+            </a>
+            <a
+              href="#contact"
+              className="rounded-full bg-white px-3 md:px-6 py-2 md:py-2.5 text-[10px] md:text-xs font-bold uppercase tracking-wider md:tracking-widest text-black hover:bg-zinc-200 transition-all"
+            >
+              Contact
+            </a>
+          </div>
         </div>
       </nav>
 
       {/* --- HERO SECTION (PROFESSIONAL & CLEAN) --- */}
-      <section className="relative flex min-h-screen flex-col justify-center px-6 md:px-12 max-w-[1600px] mx-auto">
+      <section id="home" className="relative flex min-h-screen flex-col justify-center px-6 md:px-12 max-w-[1600px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mt-20 md:mt-0">
             
             {/* Left Content: Typography Focus */}
@@ -204,64 +212,64 @@ export default function App() {
                          </h2>
                     </div>
                     
-                    <h1 className="text-5xl md:text-8xl font-medium tracking-tight text-white leading-[1.1] mb-8">
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.1] mb-6 md:mb-8">
                         Designing <span className="text-zinc-600">Intelligence</span>.<br />
                         Coding <span className="text-zinc-600">Performance</span>.
                     </h1>
-                    
-                    <p className="text-lg md:text-xl text-zinc-400 max-w-xl leading-relaxed">
-                        Je suis <strong className="text-white">Hatim Lamarti</strong>, Développeur Full Stack & Data Scientist. 
+
+                    <p className="text-base md:text-lg lg:text-xl text-zinc-400 max-w-xl leading-relaxed">
+                        Je suis <strong className="text-white">Hatim Lamarti</strong>, Développeur Full Stack & Data Scientist.
                         Je conçois des architectures digitales robustes et des solutions IA sur mesure pour les entreprises exigeantes.
                     </p>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6, duration: 1 }}
-                    className="mt-12 flex flex-wrap gap-6"
+                    className="mt-8 md:mt-12 flex flex-wrap gap-4 md:gap-6"
                 >
-                    <MagneticButton href="#work" className="bg-white text-black px-8 py-4 rounded-full font-medium text-sm uppercase tracking-wider hover:bg-zinc-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                    <MagneticButton href="#work" className="bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-full font-medium text-xs md:text-sm uppercase tracking-wider hover:bg-zinc-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
                         Voir mes projets
                     </MagneticButton>
-                    <MagneticButton href="mailto:hatimlamarti3@gmail.com" className="border border-white/20 text-white px-8 py-4 rounded-full font-medium text-sm uppercase tracking-wider hover:bg-white/10">
+                    <MagneticButton href="mailto:hatimlamarti3@gmail.com" className="border border-white/20 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-medium text-xs md:text-sm uppercase tracking-wider hover:bg-white/10">
                         Me contacter
                     </MagneticButton>
                 </motion.div>
             </div>
 
             {/* Right Content: Key Metrics (Credibility) */}
-            <div className="hidden md:flex md:col-span-4 flex-col items-end justify-center gap-12 text-right z-10 opacity-80">
-                 <motion.div 
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
+            <div className="flex md:hidden flex-row items-center justify-around gap-8 mt-12 mb-8 z-10 opacity-80 md:col-span-4 md:flex-col md:items-end md:justify-center md:gap-12 md:text-right md:mt-0 md:mb-0">
+                 <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 1 }}
-                    className="space-y-2 group cursor-default"
+                    className="space-y-2 group cursor-default text-center md:text-right"
                  >
-                     <span className="block text-6xl font-light text-white group-hover:text-blue-400 transition-colors duration-500">11+</span>
-                     <span className="block text-xs font-mono uppercase tracking-widest text-zinc-500">Projets Livrés</span>
+                     <span className="block text-4xl md:text-6xl font-light text-white group-hover:text-blue-400 transition-colors duration-500">11+</span>
+                     <span className="block text-[10px] md:text-xs font-mono uppercase tracking-widest text-zinc-500">Projets Livrés</span>
                  </motion.div>
-                 
-                 <div className="w-full h-[1px] bg-white/10"></div>
-                 
-                 <motion.div 
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
+
+                 <div className="w-[1px] h-12 md:w-full md:h-[1px] bg-white/10"></div>
+
+                 <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 1 }}
-                    className="space-y-2 group cursor-default"
+                    className="space-y-2 group cursor-default text-center md:text-right"
                  >
-                     <span className="block text-6xl font-light text-white group-hover:text-purple-400 transition-colors duration-500">95%</span>
-                     <span className="block text-xs font-mono uppercase tracking-widest text-zinc-500">Score IBM Data Science</span>
+                     <span className="block text-4xl md:text-6xl font-light text-white group-hover:text-purple-400 transition-colors duration-500">95%</span>
+                     <span className="block text-[10px] md:text-xs font-mono uppercase tracking-widest text-zinc-500">Score IBM Data Science</span>
                  </motion.div>
             </div>
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
+        <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 1 }}
-            className="absolute bottom-12 left-6 md:left-12 flex items-center gap-4 text-xs font-mono text-zinc-600 uppercase tracking-widest"
+            className="hidden md:flex absolute bottom-12 left-6 md:left-12 items-center gap-4 text-xs font-mono text-zinc-600 uppercase tracking-widest"
         >
             <div className="h-12 w-[1px] bg-zinc-800 overflow-hidden relative">
                 <motion.div 
@@ -275,7 +283,7 @@ export default function App() {
       </section>
 
       {/* --- BENTO GRID "LUXURY" --- */}
-      <section id="about" className="px-4 md:px-8 py-32 max-w-[1600px] mx-auto">
+      <section id="expertise" className="px-4 md:px-8 py-32 max-w-[1600px] mx-auto">
          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[300px] md:auto-rows-[350px]">
             
             {/* Card 1: EXPÉRIENCE BDE EFET (2 colonnes) - MISE À JOUR */}
@@ -283,13 +291,13 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-transparent opacity-50"></div>
 
                 {/* Header (Logo & Title) */}
-                <div className="flex items-start md:items-center gap-6 relative z-20 mb-4">
-                    <div className="p-4 rounded-xl bg-blue-500/20 border-2 border-blue-500/50 text-blue-300 flex-shrink-0">
-                         <img src={bdeLogoPath} alt="BDE EFET Logo" className="w-12 h-12" />
+                <div className="flex items-start md:items-center gap-4 md:gap-6 relative z-20 mb-4">
+                    <div className="p-3 md:p-4 rounded-xl bg-blue-500/20 border-2 border-blue-500/50 text-blue-300 flex-shrink-0">
+                         <img src={bdeLogoPath} alt="BDE EFET Logo" className="w-10 h-10 md:w-12 md:h-12" />
                    </div>
                     <div>
-                        <p className="text-xl md:text-2xl font-normal text-white">Vice-Président – Bureau des Étudiants (BDE EFET)</p>
-                        <p className="text-sm font-mono text-zinc-500 uppercase tracking-widest">BDE EFET – École de Formation en Technologies (EFET)</p>
+                        <p className="text-base md:text-xl lg:text-2xl font-normal text-white">Vice-Président – Bureau des Étudiants (BDE EFET)</p>
+                        <p className="text-xs md:text-sm font-mono text-zinc-500 uppercase tracking-wider md:tracking-widest">BDE EFET – École de Formation en Technologies (EFET)</p>
                     </div>
                 </div>
                 
@@ -397,7 +405,7 @@ export default function App() {
       </section>
       
       {/* --- CERTIFICATIONS --- */}
-      <section className="px-4 md:px-12 pb-32 max-w-[1600px] mx-auto">
+      <section id="about" className="px-4 md:px-12 pb-32 max-w-[1600px] mx-auto">
         <div className="mb-16">
             <h2 className="text-2xl font-light text-white mb-8">Certifications</h2>
              <div className="grid grid-cols-1 border-t border-white/10">
@@ -416,44 +424,45 @@ export default function App() {
       </section>
 
       {/* --- FOOTER MONUMENTAL --- */}
-      <footer className="relative bg-zinc-50 text-black py-32 px-6 md:px-12 overflow-hidden">
+      <footer id="contact" className="relative bg-zinc-50 text-black py-32 px-6 md:px-12 overflow-hidden">
          <motion.div style={{ y }} className="max-w-[1600px] mx-auto relative z-10">
-             <div className="flex flex-col md:flex-row justify-between items-start">
+             <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0">
                  <div>
-                     <p className="text-sm font-mono uppercase tracking-widest mb-8 text-zinc-500">Got an idea?</p>
-                     <h2 className="text-6xl md:text-8xl font-medium tracking-tighter leading-[0.9] mb-12">
+                     <p className="text-xs md:text-sm font-mono uppercase tracking-widest mb-6 md:mb-8 text-zinc-500">Got an idea?</p>
+                     <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-medium tracking-tighter leading-[0.9] mb-8 md:mb-12">
                          LET'S BUILD<br/>THE FUTURE.
                      </h2>
                  </div>
-                 
-                 <div className="flex flex-col items-start md:items-end gap-6">
-                     <div 
+
+                 <div className="flex flex-col items-start md:items-end gap-4 md:gap-6 w-full md:w-auto">
+                     <div
                         onClick={copyEmail}
-                        className="group flex items-center gap-4 text-2xl md:text-4xl font-medium cursor-pointer hover:text-blue-600 transition-colors"
+                        className="group flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 text-lg sm:text-xl md:text-3xl lg:text-4xl font-medium cursor-pointer hover:text-blue-600 transition-colors break-all"
                      >
-                        hatimlamarti3@gmail.com
-                        <span className="p-3 rounded-full bg-zinc-200 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                            {copied ? <Check size={20} /> : <Copy size={20} />}
+                        <span className="break-all">hatimlamarti3@gmail.com</span>
+                        <span className="p-2 md:p-3 rounded-full bg-zinc-200 group-hover:bg-blue-600 group-hover:text-white transition-all flex-shrink-0">
+                            {copied ? <Check size={16} className="md:w-5 md:h-5" /> : <Copy size={16} className="md:w-5 md:h-5" />}
                         </span>
                      </div>
-                     <p className="text-zinc-500 font-mono text-sm">
+                     <p className="text-zinc-500 font-mono text-xs md:text-sm">
                         {copied ? "Email copié dans le presse-papier !" : "Cliquez pour copier"}
                      </p>
                  </div>
              </div>
 
-             <div className="mt-32 border-t border-zinc-300 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-mono uppercase tracking-widest text-zinc-500">
-                 <span>© 2026 LAMARTI HATIM. ALL RIGHTS RESERVED.</span>
-                 <div className="flex gap-8">
+             <div className="mt-16 md:mt-32 border-t border-zinc-300 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-[10px] md:text-xs font-mono uppercase tracking-widest text-zinc-500 text-center md:text-left">
+                 <span className="order-2 md:order-1">© 2026 LAMARTI HATIM. ALL RIGHTS RESERVED.</span>
+                 <div className="flex gap-6 md:gap-8 order-1 md:order-2">
                      <a href="https://www.instagram.com/laamarti_hatim" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Instagram</a>
                      <a href="https://www.linkedin.com/in/lamartihatim/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">LinkedIn</a>
                      <a href="https://github.com/hatim3310" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">GitHub</a>
                  </div>
-                 <span>CASABLANCA, MAROC</span>
+                 <span className="order-3">CASABLANCA, MAROC</span>
              </div>
          </motion.div>
       </footer>
 
-    </div>
+      </div>
+    </>
   );
 }
