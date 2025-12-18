@@ -1,301 +1,70 @@
-# Designing Intelligence. Coding Performance.
+# Hatim Lamarti - Portfolio v2 (2025)
 
-> Portfolio professionnel de **Hatim Lamarti** - Développeur Full Stack & Data Scientist
+![Portfolio Preview](public/assets/images/logo_hatim.png)
 
-[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.5-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-10.16.4-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
+A high-performance, immersive portfolio website built with modern web technologies. Designed to showcase Full Stack Development and Data Science expertise with a focus on "Ethereal Clarity" design, responsiveness, and speed.
 
-## 📖 À propos
+🔗 **Live Demo:** [https://hatimlamarti.vercel.app](https://hatimlamarti.vercel.app)
 
-Portfolio interactif nouvelle génération présentant mon expertise en **développement full-stack** et **data science**. Conçu avec une approche minimaliste et luxueuse, ce site met en avant des architectures digitales robustes et des solutions IA sur mesure pour entreprises exigeantes.
+## 🎨 Design Philosophy
+- **Aesthetic:** "Trend 2025" / Ethereal Clarity. High contrast, monumental typography, and atmospheric lighting.
+- **Typography:** Outfit (UI) & Space Grotesk (Display).
+- **UX:** Instant interactions, accessibility-first, and "framed" viewport layouts.
 
-### ✨ Ce qui rend ce portfolio unique
+## 🛠 Tech Stack
 
-- **Design Cinématique** : Expérience visuelle immersive avec des animations sophistiquées
-- **Interactions Magnétiques** : Boutons qui réagissent au mouvement du curseur avec physique réaliste
-- **Fond Aurora Dynamique** : Orbes lumineux animés créant une ambiance moderne et professionnelle
-- **Architecture Performante** : Code optimisé pour une performance maximale
-- **Présentation Innovante** : Effet de focus cinématographique sur les projets
+- **Core:** [React 18](https://reactjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Analytics:** [Vercel Analytics](https://vercel.com/analytics)
 
-**🌐 Démo en ligne :** [À venir]
-
-## 🚀 Fonctionnalités Clés
-
-### 🎨 Design & UX
-- **Aurora Background** : Fond animé avec orbes lumineux et grille technique ultra-fine
-- **Glassmorphism 2.0** : Cartes avec effet de verre dépoli et bordures lumineuses
-- **Typography Luxe** : Hiérarchie typographique professionnelle avec tracking optimisé
-- **Grain Texture** : Effet film subtil pour une profondeur visuelle accrue
-
-### ⚡ Interactions Avancées
-- **Magnetic Buttons** : Boutons magnétiques suivant le curseur avec spring physics
-- **Cinematic Focus** : Effet de focus sur les projets avec blur dynamique sur les autres éléments
-- **Parallax Effects** : Animations parallax fluides sur le scroll
-- **Hover States** : États de survol sophistiqués avec transformations 3D
-
-### 📱 Responsive & Performance
-- **Mobile-First Design** : Interface optimisée pour tous les écrans (320px → 2560px+)
-- **60 FPS Animations** : Animations performantes utilisant GPU acceleration
-- **Lazy Loading** : Chargement optimisé des ressources
-- **SEO Ready** : Structure sémantique et méta-données optimisées
-
-### 🎯 Sections
-- **Hero Monumental** : Introduction avec métriques clés et CTA magnétiques
-- **Bento Grid Expertise** : Grille modulaire présentant expériences et compétences
-- **Selected Works** : Liste cinématographique des projets avec liens directs
-- **Certifications** : Présentation élégante des certifications professionnelles
-- **Footer Interactif** : Contact avec copie email en un clic
-
-## 💻 Technologies Utilisées
-
-### Frontend
-- **React** 18.2.0 - Bibliothèque JavaScript pour construire l'interface utilisateur
-- **Framer Motion** 10.16.4 - Animations et transitions fluides
-- **Tailwind CSS** 3.3.5 - Framework CSS utility-first
-- **Lucide React** 0.292.0 - Icônes modernes et légères
-
-### Build & Dev Tools
-- **React Scripts** 5.0.1 - Scripts de configuration pour Create React App
-- **PostCSS** 8.4.31 - Transformation CSS
-- **Autoprefixer** 10.4.16 - Ajout automatique des préfixes CSS
-
-## 📦 Installation
-
-### Prérequis
-
-- Node.js (version 14 ou supérieure)
-- npm ou yarn
-
-### Étapes d'installation
-
-1. Clonez le repository :
-```bash
-git clone https://github.com/hatim3310/portfolio.git
-cd portfolio
-```
-
-2. Installez les dépendances :
-```bash
-npm install
-```
-
-3. Lancez le serveur de développement :
-```bash
-npm start
-```
-
-4. Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur
-
-## 🛠️ Scripts Disponibles
+## 📂 Project Structure
 
 ```bash
-npm start        # Lance l'application en mode développement
-npm run build    # Crée une version optimisée pour la production
-npm test         # Lance les tests
-npm run eject    # Éjecte la configuration (irréversible)
+src/
+├── components/         # Reusable UI components
+│   ├── AuroraBackground.js  # Atmospheric background animation
+│   ├── BentoItem.js         # Grid layout cards
+│   ├── CinematicRow.js      # List items with hover effects
+│   └── MagneticButton.js    # Interactive mouse-tracking buttons
+├── data/
+│   └── portfolioData.js     # Centralized content (Projects & Certs)
+├── App.js              # Main layout and logic
+└── index.css           # Global styles & Tailwind directives
 ```
 
-## 📁 Structure du Projet
+## 🚀 Getting Started
 
-```
-portfolio/
-├── public/
-│   ├── assets/
-│   │   └── images/
-│   │       ├── logo_hatim.png
-│   │       └── logo_bde_efet.png
-│   └── index.html
-├── src/
-│   ├── App.js              # Composant principal
-│   ├── index.js            # Point d'entrée
-│   └── index.css           # Styles globaux
-├── package.json
-├── tailwind.config.js      # Configuration Tailwind
-└── README.md
-```
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/hatim3310/portfolio-v2.git
+    cd portfolio-v2
+    ```
 
-## 🏗️ Architecture & Composants
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-### 🌌 AuroraBackground
-Système de fond animé multi-couches :
-- Orbes lumineux avec animations infinies (scale, rotate, opacity)
-- Grain texture pour effet film cinématographique
-- Grille technique ultra-fine avec mask radial
-- Optimisé avec `will-change` pour performance GPU
+3.  **Run locally**
+    ```bash
+    npm start
+    ```
 
-```javascript
-// Orbes animés avec Framer Motion
-<motion.div animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }} />
-```
+## 🌟 Key Features
 
-### 🧲 MagneticButton
-Bouton interactif suivant le curseur :
-- Utilise `useMotionValue` pour tracking smooth du curseur
-- Calcul de position relative au centre du bouton
-- Spring physics pour mouvement naturel
-- Reset automatique au `mouseLeave`
+*   **Monumental Typography:** Custom configured Tailwind font families for impactful headings.
+*   **Bento Grid Layout:** A responsive, grid-based layout for showcasing expertise areas.
+*   **Magnetic Interactions:** Custom hook-based button animations that follow the cursor.
+*   **Performance:** Optimized assets and memoized components for 60fps rendering.
+*   **SEO Optimized:** Full Open Graph tags and semantic HTML structure.
 
-```javascript
-const handleMouseMove = (e) => {
-  const middleX = clientX - (left + width / 2);
-  x.set(middleX * 0.15); // Facteur magnétique
-};
-```
+## 📬 Contact
 
-### 🎬 CinematicRow
-Composant de liste avec effet de focus :
-- Blur et opacity dynamiques sur les autres éléments au hover
-- Animation des tags techniques au survol
-- Rotation de l'icône d'action (45°) au hover
-- Support des liens externes et certifications
-
-### 🎴 BentoItem
-Cartes modulaires glassmorphism :
-- Background blur avec `backdrop-blur-3xl`
-- Bordures dynamiques qui s'illuminent au hover
-- Support grille flexible (colspan, rowspan)
-- Effet de levée 3D au survol (`translateY`, `scale`)
-
-## 🎨 Personnalisation
-
-### Modifier les couleurs
-Les couleurs peuvent être modifiées dans [src/App.js](src/App.js) en changeant les classes Tailwind CSS.
-
-### Ajouter des projets
-Modifiez le tableau `projects` dans [src/App.js:154-158](src/App.js#L154-L158) :
-
-```javascript
-const projects = [
-  {
-    title: "Nom du Projet",
-    subtitle: "Description courte",
-    detail: "Tech1, Tech2, Tech3",
-    link: "https://lien-vers-projet.com"
-  },
-  // ...
-];
-```
-
-### Ajouter des certifications
-Modifiez le tableau `certs` dans [src/App.js:160-164](src/App.js#L160-L164) :
-
-```javascript
-const certs = [
-  {
-    title: "Nom Certification",
-    subtitle: "Organisme",
-    detail: "Détails, Score, Niveau"
-  },
-  // ...
-];
-```
-
-## 🚀 Déploiement
-
-### Vercel (Recommandé)
-
-1. Créez un compte sur [Vercel](https://vercel.com)
-2. Importez votre repository GitHub
-3. Vercel détectera automatiquement React et déploiera votre site
-
-### Netlify
-
-1. Créez un compte sur [Netlify](https://netlify.com)
-2. Glissez-déposez le dossier `build` après avoir exécuté `npm run build`
-
-### GitHub Pages
-
-1. Installez `gh-pages` :
-```bash
-npm install --save-dev gh-pages
-```
-
-2. Ajoutez dans `package.json` :
-```json
-"homepage": "https://votre-username.github.io/portfolio",
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
-}
-```
-
-3. Déployez :
-```bash
-npm run deploy
-```
-
-## 💼 Projets Présentés
-
-### 1️⃣ **KhedmatMaroc** - Plateforme de Services Innovante
-- **Stack** : PHP, MySQL, Architecture MVC
-- **Focus** : UX/UI Design, Performance Backend
-- Plateforme connectant prestataires de services et clients au Maroc
-
-### 2️⃣ **F1 Analytics** - Dashboard Temps Réel
-- **Stack** : React, D3.js, API REST
-- **Focus** : Visualisation de données, Performance temps réel
-- 🔗 **[Voir la démo live](https://f1-velocity-analytics.vercel.app)**
-- Dashboard interactif d'analyse de données Formule 1
-
-### 3️⃣ **DataInsight AI** - Solution Machine Learning
-- **Stack** : Python, Pandas, Scikit-Learn, Streamlit
-- **Focus** : AI/ML, Data Processing, Visualisation
-- Application d'analyse prédictive et visualisation de données
-
-## 🎓 Certifications Professionnelles
-
-| Certification | Organisme | Détails | Score |
-|--------------|-----------|---------|-------|
-| **IBM Data Science** | IBM | Professional Certificate - Python, AI, ML | **95%** |
-| **Google Analytics** | Google | Advanced Tracking & Conversion Optimization | Certifié |
-| **ALX AI Career Essentials** | ALX Africa | Intelligence Artificielle, NLP, Ethics | **Top 10%** |
-
-## 🌟 Expérience en Leadership
-
-### Vice-Président - Bureau des Étudiants (BDE EFET)
-**Sept. 2025 - Aujourd'hui** | Casablanca-Settat, Maroc
-
-- 🎯 Coordination stratégique et planification d'événements étudiants
-- 🔧 Gestion opérationnelle complète du BDE
-- 💻 Développement et lancement du site web officiel
-- 🌐 **Site web BDE** : [bde-efet.vercel.app](https://bde-efet.vercel.app)
-
-**Impact** : Digitalisation complète des processus du BDE et amélioration de la communication étudiante
-
-## 📬 Contact & Réseaux
-
-Intéressé par une collaboration ou une opportunité professionnelle ?
-
-<div align="center">
-
-[![Email](https://img.shields.io/badge/Email-hatimlamarti3%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:hatimlamarti3@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Hatim_Lamarti-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lamartihatim/)
-[![GitHub](https://img.shields.io/badge/GitHub-hatim3310-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/hatim3310)
-[![Instagram](https://img.shields.io/badge/Instagram-@laamarti__hatim-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/laamarti_hatim)
-
-📍 **Localisation** : Casablanca, Maroc
-
-</div>
+- **Email:** [hatimlamarti3@gmail.com](mailto:hatimlamarti3@gmail.com)
+- **LinkedIn:** [Hatim Lamarti](https://www.linkedin.com/in/lamartihatim/)
+- **GitHub:** [@hatim3310](https://github.com/hatim3310)
 
 ---
-
-## 📄 Licence
-
-© 2026 **Lamarti Hatim**. Tous droits réservés.
-
-Ce projet est sous licence propriétaire. Vous pouvez consulter le code à des fins éducatives, mais toute utilisation commerciale ou redistribution nécessite une autorisation explicite.
-
----
-
-<div align="center">
-
-### 💡 Let's Build The Future Together
-
-**Ce portfolio est en constante évolution.**
-
-N'hésitez pas à me contacter pour toute collaboration, opportunité professionnelle ou projet innovant.
-
-*Conçu avec ❤️ par Hatim Lamarti - Développeur Full Stack & Data Scientist*
-
-</div>
+© 2025 Hatim Lamarti. All Rights Reserved.

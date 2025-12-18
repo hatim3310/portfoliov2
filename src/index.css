@@ -2,37 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+@layer base {
+  html {
+    /* scroll-behavior: smooth; REMOVED per user request */
+    @apply bg-[#030303] text-zinc-100;
+  }
+
+  body {
+    @apply antialiased selection:bg-blue-500/30 selection:text-white;
+  }
+
+  /* Typography Defaults */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight;
+  }
 }
 
-body {
-  overflow-x: hidden;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* Offset pour la navigation fixe */
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Trend: Outline Text Utility */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
+
+.text-outline-hover:hover {
+  -webkit-text-stroke: 0px;
+  color: white;
+}
+
+/* Utilities */
 section {
   scroll-margin-top: 100px;
-}
-
-/* Amélioration du texte sur mobile */
-@media (max-width: 768px) {
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Éviter le zoom sur les inputs mobile */
-  input, textarea, select {
-    font-size: 16px;
-  }
-}
-
-/* Touch optimisé pour mobile */
-@media (hover: none) and (pointer: coarse) {
-  a, button {
-    -webkit-tap-highlight-color: transparent;
-  }
 }
