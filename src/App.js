@@ -188,7 +188,7 @@ export default function App() {
                 <p className="font-sans text-lg text-zinc-300 mb-6 max-w-md">
                   Orchestrating strategic operations and events for EFET School.
                 </p>
-                <a href="https://bde-efet.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-sans uppercase tracking-widest text-white border-b border-white/30 pb-1 hover:border-white transition-all">
+                <a href="https://bde-efet.vercel.app" target="_blank" className="inline-flex items-center gap-2 text-sm font-sans uppercase tracking-widest text-white border-b border-white/30 pb-1 hover:border-white transition-all">
                   Visit Platform <ArrowUpRight size={14} />
                 </a>
               </div>
@@ -222,25 +222,33 @@ export default function App() {
               </div>
             </BentoItem>
 
-            {/* Card 4: TECH ARSENAL */}
-            <BentoItem colSpan="md:col-span-2" className="flex flex-col justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-blue-900/5"></div>
-              <div className="relative z-10 w-full px-4">
-                <div className="flex items-end justify-between mb-8">
-                  <h3 className="font-display text-3xl text-white">Tech Arsenal</h3>
-                  <span className="text-xs font-sans uppercase tracking-widest text-zinc-500">Full Stack & AI</span>
+            <BentoItem colSpan="md:col-span-2" className="flex flex-col justify-between relative overflow-hidden bg-zinc-900/80 border border-white/10 min-h-[600px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
+
+              <div className="relative z-10 w-full p-6 md:p-8">
+                <div className="flex flex-row items-start justify-between mb-8 gap-4">
+                  <h3 className="font-display text-3xl md:text-4xl text-white leading-none">
+                    Tech<br />Arsenal
+                  </h3>
+                  <span className="px-3 py-1 rounded-full border border-white/20 bg-white/10 text-[10px] md:text-xs font-mono uppercase tracking-widest text-zinc-300">
+                    Full Stack & AI
+                  </span>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                   {[
                     { label: "React / Next", icon: Globe },
                     { label: "Python AI", icon: Database },
                     { label: "Node.js", icon: ShieldCheck },
-                    { label: "Docker / AWS", icon: Database }
+                    { label: "Docker / AWS", icon: Database },
+                    { label: "TypeScript", icon: Globe },
+                    { label: "PostgreSQL", icon: Database },
+                    { label: "TensorFlow", icon: Globe },
+                    { label: "Tailwind", icon: ShieldCheck }
                   ].map((item, idx) => (
-                    <div key={idx} className="p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
-                      <item.icon className="w-6 h-6 text-blue-400 mb-3" strokeWidth={1.5} />
-                      <p className="font-medium text-white">{item.label}</p>
+                    <div key={idx} className="flex flex-col justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 group/item">
+                      <item.icon className="w-5 h-5 text-zinc-400 group-hover/item:text-blue-400 transition-colors mb-3" strokeWidth={1.5} />
+                      <p className="font-sans text-xs font-bold text-white group-hover/item:text-blue-200 transition-colors">{item.label}</p>
                     </div>
                   ))}
                 </div>
@@ -316,7 +324,7 @@ export default function App() {
                   className="group relative inline-flex items-center gap-4 text-2xl md:text-4xl font-sans font-medium cursor-pointer transition-colors"
                 >
                   <span className="relative z-10 border-b-2 border-black/10 group-hover:border-blue-600 transition-colors pb-1">
-                    hatimlamarti3@gmail.com
+                    Hatimlamarti3@gmail.com
                   </span>
                   <span className="p-3 md:p-4 rounded-full bg-white group-hover:bg-blue-600 group-hover:text-white transition-all shadow-lg">
                     {copied ? <Check size={24} /> : <Copy size={24} />}
@@ -345,19 +353,13 @@ export default function App() {
               </div>
 
               <div className="flex gap-8 md:gap-12">
-                {[
-                  { name: 'Instagram', url: 'https://instagram.com' },
-                  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lamartihatim/' },
-                  { name: 'GitHub', url: 'https://github.com/hatim3310' }
-                ].map((social) => (
+                {['Instagram', 'LinkedIn', 'GitHub'].map((social) => (
                   <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    key={social}
+                    href="#"
                     className="font-sans text-sm font-medium uppercase tracking-widest hover:text-blue-600 transition-colors relative group"
                   >
-                    {social.name}
+                    {social}
                     <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 ))}
