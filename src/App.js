@@ -37,7 +37,7 @@ export default function App() {
         {/* --- NAV FLOTTANTE MINIMALISTE --- */}
         <nav className="fixed top-4 md:top-6 left-4 right-4 md:left-0 md:right-0 z-50 flex justify-center pointer-events-none">
           <div className="pointer-events-auto flex items-center gap-0.5 md:gap-1 rounded-full bg-black/40 border border-white/10 p-1 md:p-1.5 backdrop-blur-xl shadow-2xl w-full md:w-auto justify-between md:justify-center">
-            <img src="/assets/images/logo_hatim.png" alt="Logo" className="h-7 w-7 md:h-8 md:w-8 rounded-full ml-1 md:mr-2" />
+            <img src="/assets/images/logo_hatim.svg" alt="Logo" className="h-7 w-7 md:h-8 md:w-8 rounded-full ml-1 md:mr-2" />
             <div className="flex items-center gap-0.5 md:gap-1">
               <a href="#work" className="rounded-full px-3 md:px-6 py-2 md:py-2.5 text-[10px] md:text-xs font-medium uppercase tracking-wider md:tracking-widest text-zinc-400 transition-all hover:bg-white hover:text-black hover:scale-105">
                 Work
@@ -174,7 +174,7 @@ export default function App() {
 
               <div className="relative z-20 flex justify-between items-start">
                 <div className="p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
-                  <img src={bdeLogoPath} alt="BDE EFET Logo" className="w-8 h-8" />
+                  <img src={bdeLogoPath} alt="BDE EFET Logo" className="w-8 h-8" loading="lazy" />
                 </div>
                 <div className="px-4 py-1 rounded-full border border-white/10 bg-black/20 text-xs font-sans uppercase tracking-widest text-zinc-400">
                   Leadership
