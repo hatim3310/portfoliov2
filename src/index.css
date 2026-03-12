@@ -2,58 +2,231 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @layer base {
   html {
-    /* scroll-behavior: smooth; REMOVED per user request */
-    @apply bg-[#030303] text-zinc-100;
+    @apply bg-base text-zinc-200;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply antialiased selection:bg-blue-500/30 selection:text-white;
+    @apply antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Typography Defaults */
+  ::selection {
+    background: rgba(59, 130, 246, 0.2);
+    color: #fff;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-display: swap;
+    font-family: 'Satoshi', 'Inter', system-ui, sans-serif;
   }
 }
 
-/* Custom Scrollbar */
+/* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #030303;
+  background: #09090b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #222;
-  border-radius: 4px;
+  background: #27272a;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333;
+  background: #3f3f46;
 }
 
-/* Trend: Outline Text Utility */
-.text-outline {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-  color: transparent;
-}
-
-.text-outline-hover:hover {
-  -webkit-text-stroke: 0px;
-  color: white;
-}
-
-/* Utilities */
 section {
   scroll-margin-top: 100px;
+}
+
+/* ═══════════════════════════════════════
+   V3: MARQUEE
+═══════════════════════════════════════ */
+.marquee-track {
+  animation: marquee-scroll linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ═══════════════════════════════════════
+   V3: GRADIENT MESH ORBS — slow drift
+═══════════════════════════════════════ */
+.mesh-orb-1 {
+  animation: mesh-drift-1 20s ease-in-out infinite;
+}
+
+.mesh-orb-2 {
+  animation: mesh-drift-2 25s ease-in-out infinite;
+}
+
+.mesh-orb-3 {
+  animation: mesh-drift-3 30s ease-in-out infinite;
+}
+
+@keyframes mesh-drift-1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  33% {
+    transform: translate(-30px, 20px);
+  }
+
+  66% {
+    transform: translate(20px, -15px);
+  }
+}
+
+@keyframes mesh-drift-2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  33% {
+    transform: translate(25px, -20px);
+  }
+
+  66% {
+    transform: translate(-20px, 30px);
+  }
+}
+
+@keyframes mesh-drift-3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  33% {
+    transform: translate(-15px, -25px);
+  }
+
+  66% {
+    transform: translate(30px, 15px);
+  }
+}
+
+/* ═══════════════════════════════════════
+   V3: REVEAL LINE
+═══════════════════════════════════════ */
+.reveal-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 20%, rgba(59, 130, 246, 0.3) 80%, transparent 100%);
+  transform-origin: left;
+}
+
+/* ═══════════════════════════════════════
+   PRO MAX: SHIMMER SWEEP — card placeholders
+═══════════════════════════════════════ */
+.shimmer-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.03) 40%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(255, 255, 255, 0.03) 60%,
+      transparent 100%);
+  animation: shimmer-sweep 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 200%;
+  }
+}
+
+/* ═══════════════════════════════════════
+   PRO MAX: BORDER BEAM — rotating gradient
+═══════════════════════════════════════ */
+.border-beam-gradient {
+  background: conic-gradient(from var(--beam-angle, 0deg),
+      transparent 0%,
+      transparent 70%,
+      rgba(59, 130, 246, 0.6) 80%,
+      rgba(99, 102, 241, 0.4) 90%,
+      transparent 100%);
+  animation: border-beam-rotate 3s linear infinite;
+}
+
+@keyframes border-beam-rotate {
+  0% {
+    --beam-angle: 0deg;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    --beam-angle: 360deg;
+    transform: rotate(360deg);
+  }
+}
+
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ═══════════════════════════════════════
+   PRO MAX: GLASS PANEL
+═══════════════════════════════════════ */
+.glass-panel {
+  background: rgba(9, 9, 11, 0.6);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ═══════════════════════════════════════
+   Reduced Motion
+═══════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

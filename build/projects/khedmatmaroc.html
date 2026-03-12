@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KhedmatMaroc - Démo Officielle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- CHARTE GRAPHIQUE FOURNIE --- */
+
+        /* Variables et resets */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --success: #4cc9f0;
+            --pending: #f77f00;
+            --danger: #d90429;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fb;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Boutons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Section héro */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero .btn {
+            background-color: white;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin: 0 10px;
+        }
+
+        .hero .btn:hover {
+            background-color: var(--light-bg);
+            transform: translateY(-2px);
+        }
+
+        .hero .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .hero .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Section services */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .services h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border-top: 5px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .service-card .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Formulaire de réservation (MODAL) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s;
+        }
+
+        form {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .form-header h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .form-actions .btn {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Admin / Dashboard */
+        .admin-dashboard {
+            padding: 60px 0;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .stat-card.warning { border-color: var(--pending); }
+        .stat-card.success { border-color: var(--success); }
+
+        .stat-card h4 {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: var(--box-shadow);
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .admin-table th {
+            background-color: var(--light-bg);
+            font-weight: 600;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .admin-table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status.pending {
+            background-color: #fff3e6;
+            color: var(--pending);
+        }
+
+        .status.confirmed {
+            background-color: #e6f9ff;
+            color: #0077b6;
+        }
+
+        .status.completed {
+            background-color: #e6fffa;
+            color: #059669;
+        }
+
+        .status.cancelled {
+            background-color: #ffe6e9;
+            color: var(--danger);
+        }
+
+        .action-btn {
+            padding: 8px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            margin-right: 5px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover { transform: scale(1.1); }
+
+        .action-btn.confirm { color: #4cc9f0; background: transparent; }
+        .action-btn.cancel { color: var(--danger); background: transparent; }
+        .action-btn.delete { color: #999; background: transparent; }
+        .action-btn.complete { color: var(--primary-color); background: transparent; }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-left: 5px solid var(--success);
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast i { font-size: 1.5rem; color: var(--success); }
+        .toast-content h4 { margin-bottom: 2px; }
+        .toast-content p { font-size: 0.9rem; color: #666; }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            .container { width: 95%; }
+            header .container { flex-direction: column; }
+            nav ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 5px 10px; }
+            .hero { padding: 60px 0; }
+            .hero h2 { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .admin-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .filter-bar { flex-direction: column; }
+            .admin-table { display: block; overflow-x: auto; }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo" onclick="navigateTo('home')" style="cursor: pointer;">
+                <h1>
+                    <i class="fa-solid fa-hand-holding-heart" style="color: var(--primary-color);"></i>
+                    KhedmatMaroc
+                </h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a id="nav-home" onclick="navigateTo('home')" class="active">Accueil</a></li>
+                    <li><a id="nav-services" onclick="navigateTo('services')">Services</a></li>
+                    <li><a id="nav-dashboard" onclick="navigateTo('dashboard')">Mon Espace</a></li>
+                    <li><a id="nav-employee" onclick="navigateTo('employee')" style="background-color: var(--light-bg); color: var(--primary-color);">Accès Pro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="app-content">
+        <!-- Views will be injected here -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>KhedmatMaroc</h3>
+            <p>La solution intelligente pour tous vos besoins de services à domicile.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">&copy; 2024 Projet PFE. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <div class="toast-content">
+            <h4 id="toast-title">Succès</h4>
+            <p id="toast-message">Opération réussie</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- DATA & STATE ---
+        const services = [
+            { id: 1, title: "Plomberie", icon: "fa-faucet", desc: "Réparation de fuites, débouchage et installation sanitaire complète.", price: "À partir de 150 DH" },
+            { id: 2, title: "Électricité", icon: "fa-bolt", desc: "Installation, dépannage, mise aux normes et maintenance électrique.", price: "À partir de 200 DH" },
+            { id: 3, title: "Ménage", icon: "fa-broom", desc: "Nettoyage résidentiel et commercial, grand nettoyage de printemps.", price: "À partir de 100 DH/h" },
+            { id: 4, title: "Climatisation", icon: "fa-snowflake", desc: "Entretien, réparation et installation de climatiseurs.", price: "À partir de 250 DH" },
+            { id: 5, title: "Jardinage", icon: "fa-seedling", desc: "Entretien d'espaces verts, taille, tonte et plantation.", price: "Sur devis" },
+            { id: 6, title: "Peinture", icon: "fa-paint-roller", desc: "Peinture intérieure et extérieure, décoration murale.", price: "Sur devis" }
+        ];
+
+        const defaultReservations = [
+            { serviceName: "Plomberie", date: "2024-05-20", time: "09:00", status: "En attente", client: "Ahmed Benali", details: "Fuite d'eau cuisine", timestamp: 1715000000000 },
+            { serviceName: "Électricité", date: "2024-05-21", time: "14:00", status: "Confirmé", client: "Sara Idrissi", details: "Panne tableau électrique", timestamp: 1715100000000 }
+        ];
+
+        let reservations = JSON.parse(localStorage.getItem('khedmat_reservations')) || defaultReservations;
+
+        // --- VIEWS ---
+
+        const views = {
+            home: () => `
+                <section class="hero fade-in">
+                    <div class="container">
+                        <h2>Votre confort, notre priorité</h2>
+                        <p>Trouvez un professionnel qualifié en quelques minutes pour tous vos travaux de maison. Simple, rapide et sécurisé.</p>
+                        <div style="margin-top: 30px;">
+                            <button onclick="navigateTo('services')" class="btn">Réserver maintenant</button>
+                            <button onclick="navigateTo('dashboard')" class="btn btn-outline">Suivre mes demandes</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="services fade-in">
+                    <div class="container">
+                        <h2>Pourquoi nous choisir ?</h2>
+                        <div class="services-grid">
+                            <div class="service-card" style="cursor: default;">
+                                <div class="service-icon"><i class="fa-solid fa-clock"></i></div>
+                                <h3>Gain de Temps</h3>
+                                <p>Fini les appels interminables. Réservez votre créneau en ligne instantanément.</p>
+                            </div>
+                            <div class="service-card" style="cursor: default;">
+                                <div class="service-icon"><i class="fa-solid fa-user-shield"></i></div>
+                                <h3>Experts Vérifiés</h3>
+                                <p>Tous nos prestataires sont qualifiés, assurés et notés par la communauté.</p>
+                            </div>
+                            <div class="service-card" style="cursor: default;">
+                                <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+                                <h3>Qualité Garantie</h3>
+                                <p>Satisfait ou refait. Nous nous engageons sur la qualité du service rendu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+
+            services: () => `
+                <section class="services fade-in">
+                    <div class="container">
+                        <h2>Nos Services</h2>
+                        <div class="services-grid">
+                            ${services.map(service => `
+                                <div class="service-card" onclick="openBookingModal(${service.id})">
+                                    <div class="service-icon"><i class="fa-solid ${service.icon}"></i></div>
+                                    <h3>${service.title}</h3>
+                                    <p>${service.desc}</p>
+                                    <span class="price">${service.price}</span>
+                                    <button class="btn-secondary">Choisir</button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+            `,
+
+            dashboard: () => {
+                const pending = reservations.filter(r => r.status === 'En attente').length;
+                const confirmed = reservations.filter(r => r.status === 'Confirmé').length;
+
+                return `
+                <div class="admin-dashboard fade-in">
+                    <div class="container">
+                        <div class="admin-header">
+                            <div>
+                                <h2 style="color: var(--primary-color);">Mon Espace Client</h2>
+                                <p>Bienvenue, Client Démo</p>
+                            </div>
+                            <button onclick="clearReservations()" class="btn-secondary" style="border-color: var(--danger); color: var(--danger);">Réinitialiser</button>
+                        </div>
+
+                        <div class="dashboard-stats">
+                            <div class="stat-card warning">
+                                <h4>En Attente</h4>
+                                <div class="value">${pending}</div>
+                            </div>
+                            <div class="stat-card success">
+                                <h4>Confirmés</h4>
+                                <div class="value">${confirmed}</div>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Total</h4>
+                                <div class="value">${reservations.length}</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-header">
+                            <h3>Historique des réservations</h3>
+                            <button onclick="navigateTo('services')" class="btn">+ Nouvelle demande</button>
+                        </div>
+
+                        <div class="admin-table-wrapper">
+                            ${reservations.length === 0 ? `
+                                <div style="text-align: center; padding: 40px; background: white; border-radius: 8px;">
+                                    <i class="fa-solid fa-folder-open" style="font-size: 3rem; color: #ddd; margin-bottom: 20px;"></i>
+                                    <p>Aucune réservation pour le moment.</p>
+                                </div>
+                            ` : `
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Service</th>
+                                            <th>Date & Heure</th>
+                                            <th>Statut</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${reservations.map((res, index) => `
+                                            <tr>
+                                                <td>
+                                                    <strong>${res.serviceName}</strong>
+                                                </td>
+                                                <td>
+                                                    ${formatDate(res.date)} à ${res.time}
+                                                </td>
+                                                <td>
+                                                    <span class="status ${getStatusClass(res.status)}">${res.status}</span>
+                                                </td>
+                                                <td>
+                                                    <button onclick="deleteReservation(${index})" class="action-btn delete" title="Annuler">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            `}
+                        </div>
+                    </div>
+                </div>
+                `;
+            },
+
+            employee: () => {
+                const pending = reservations.filter(r => r.status === 'En attente').length;
+                const todayTasks = reservations.filter(r => r.date === new Date().toISOString().split('T')[0] && r.status === 'Confirmé').length;
+
+                return `
+                <div class="admin-dashboard fade-in">
+                    <div class="container">
+                        <div class="admin-header">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="width: 50px; height: 50px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">JD</div>
+                                <div>
+                                    <h2 style="color: var(--text-color);">Espace Technicien</h2>
+                                    <p style="color: var(--secondary-color);">John Doe - Plombier & Électricien</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <div class="status pending" style="display: flex; flex-direction: column; align-items: center; padding: 10px 20px;">
+                                    <span style="font-size: 1.2rem; font-weight: bold;">${pending}</span>
+                                    <span style="font-size: 0.8rem;">En attente</span>
+                                </div>
+                                <div class="status confirmed" style="display: flex; flex-direction: column; align-items: center; padding: 10px 20px;">
+                                    <span style="font-size: 1.2rem; font-weight: bold;">${todayTasks}</span>
+                                    <span style="font-size: 0.8rem;">Aujourd'hui</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-bottom: 20px; color: var(--secondary-color);">Gestion des Interventions</h3>
+
+                        <div class="admin-table-wrapper">
+                             ${reservations.length === 0 ? `
+                                <div style="text-align: center; padding: 40px; background: white; border-radius: 8px;">
+                                    <p>Aucune demande à traiter.</p>
+                                </div>
+                            ` : `
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Client / Détails</th>
+                                            <th>Service</th>
+                                            <th>Date</th>
+                                            <th>Statut</th>
+                                            <th style="text-align: center;">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${reservations.map((res, index) => `
+                                            <tr>
+                                                <td>
+                                                    <strong>${res.client || 'Client Démo'}</strong><br>
+                                                    <small style="color: #666;">"${res.details || 'Aucun détail'}"</small>
+                                                </td>
+                                                <td style="color: var(--primary-color); font-weight: 500;">
+                                                    <i class="fa-solid ${getServiceIcon(res.serviceName)}"></i> ${res.serviceName}
+                                                </td>
+                                                <td>
+                                                    ${formatDate(res.date)}<br>
+                                                    <strong>${res.time}</strong>
+                                                </td>
+                                                <td>
+                                                    <span class="status ${getStatusClass(res.status)}">${res.status}</span>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    ${renderEmployeeActions(res.status, index)}
+                                                </td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            `}
+                        </div>
+                    </div>
+                </div>
+                `;
+            }
+        };
+
+        // --- HELPERS ---
+
+        function getServiceIcon(name) {
+            const s = services.find(srv => srv.title === name);
+            return s ? s.icon : 'fa-calendar';
+        }
+
+        function getStatusClass(status) {
+            if (status === 'Confirmé') return 'confirmed';
+            if (status === 'En attente') return 'pending';
+            if (status === 'Refusé') return 'cancelled';
+            if (status === 'Terminé') return 'completed';
+            return '';
+        }
+
+        function formatDate(dateString) {
+            if(!dateString) return "-";
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('fr-FR', options);
+        }
+
+        function renderEmployeeActions(status, index) {
+            if (status === 'En attente') {
+                return `
+                    <button onclick="updateStatus(${index}, 'Confirmé')" class="action-btn confirm" title="Accepter"><i class="fa-solid fa-check"></i></button>
+                    <button onclick="updateStatus(${index}, 'Refusé')" class="action-btn cancel" title="Refuser"><i class="fa-solid fa-xmark"></i></button>
+                `;
+            } else if (status === 'Confirmé') {
+                return `
+                    <button onclick="updateStatus(${index}, 'Terminé')" class="btn btn-sm" style="background-color: var(--success);">Terminer</button>
+                `;
+            } else {
+                return `<span style="color: #ccc;">-</span>`;
+            }
+        }
+
+        // --- NAVIGATION ---
+
+        function navigateTo(viewName) {
+            document.getElementById('app-content').innerHTML = views[viewName]();
+
+            // Update Active State
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            const activeLink = document.getElementById('nav-' + viewName);
+            if(activeLink) activeLink.classList.add('active');
+
+            window.scrollTo(0, 0);
+        }
+
+        // --- BOOKING LOGIC ---
+
+        function openBookingModal(serviceId) {
+            const service = services.find(s => s.id === serviceId);
+            if (!service) return;
+
+            const modalHtml = `
+                <div id="booking-modal" class="modal-overlay">
+                    <form onsubmit="handleBooking(event, '${service.title}')" class="fade-in">
+                        <div class="form-header">
+                            <h3><i class="fa-solid ${service.icon}"></i> ${service.title}</h3>
+                            <button type="button" class="close-btn" onclick="closeModal()">&times;</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Votre Nom</label>
+                            <input type="text" name="clientName" required placeholder="Ex: Jean Dupont">
+                        </div>
+
+                        <div class="form-group" style="display: flex; gap: 15px;">
+                            <div style="flex: 1;">
+                                <label>Date</label>
+                                <input type="date" name="date" required min="${new Date().toISOString().split('T')[0]}">
+                            </div>
+                            <div style="flex: 1;">
+                                <label>Heure</label>
+                                <select name="time" required>
+                                    <option value="">Choisir...</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description du besoin</label>
+                            <textarea name="details" rows="3" placeholder="Détails supplémentaires..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" onclick="closeModal()" class="btn-secondary">Annuler</button>
+                            <button type="submit" class="btn">Confirmer</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('booking-modal');
+            if (modal) modal.remove();
+        }
+
+        function handleBooking(e, serviceName) {
+            e.preventDefault();
+            const form = e.target;
+
+            const newRes = {
+                serviceName: serviceName,
+                client: form.clientName.value,
+                date: form.date.value,
+                time: form.time.value,
+                details: form.details.value,
+                status: 'En attente',
+                timestamp: new Date().getTime()
+            };
+
+            reservations.unshift(newRes);
+            saveData();
+            closeModal();
+            showToast('Réservation envoyée !', 'success');
+            setTimeout(() => navigateTo('dashboard'), 800);
+        }
+
+        function updateStatus(index, newStatus) {
+            reservations[index].status = newStatus;
+            saveData();
+            const currentView = document.querySelector('nav a.active').id.replace('nav-', '');
+            navigateTo(currentView);
+            showToast(`Statut : ${newStatus}`, 'success');
+        }
+
+        function deleteReservation(index) {
+            if(confirm('Annuler cette réservation ?')) {
+                reservations.splice(index, 1);
+                saveData();
+                navigateTo('dashboard');
+                showToast('Réservation annulée', 'error');
+            }
+        }
+
+        function clearReservations() {
+            if(confirm('Réinitialiser les données ?')) {
+                reservations = [...defaultReservations];
+                saveData();
+                navigateTo('dashboard');
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem('khedmat_reservations', JSON.stringify(reservations));
+        }
+
+        function showToast(message, type) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = message;
+
+            // Adjust colors based on type
+            if(type === 'error') {
+                toast.style.borderLeftColor = 'var(--danger)';
+                toast.querySelector('i').style.color = 'var(--danger)';
+                toast.querySelector('i').className = 'fa-solid fa-circle-info';
+            } else {
+                toast.style.borderLeftColor = 'var(--success)';
+                toast.querySelector('i').style.color = 'var(--success)';
+                toast.querySelector('i').className = 'fa-solid fa-circle-check';
+            }
+
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // --- INIT ---
+        window.onload = () => {
+            navigateTo('home');
+        }
+
+    </script>
+</body>
+</html>

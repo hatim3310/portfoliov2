@@ -1,24 +1,21 @@
 import React, { useRef } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const MagneticButton = ({ children, className = "", href = "#", onClick }) => {
     const ref = useRef(null);
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
+    const xRaw = useMotionValue(0);
+    const yRaw = useMotionValue(0);
+    const x = useSpring(xRaw, { stiffness: 200, damping: 15 });
+    const y = useSpring(yRaw, { stiffness: 200, damping: 15 });
 
     const handleMouseMove = (e) => {
         const { clientX, clientY } = e;
         const { height, width, left, top } = ref.current.getBoundingClientRect();
-        const middleX = clientX - (left + width / 2);
-        const middleY = clientY - (top + height / 2);
-        x.set(middleX * 0.15);
-        y.set(middleY * 0.15);
+        xRaw.set((clientX - (left + width / 2)) * 0.12);
+        yRaw.set((clientY - (top + height / 2)) * 0.12);
     };
 
-    const reset = () => {
-        x.set(0);
-        y.set(0);
-    };
+    const reset = () => { xRaw.set(0); yRaw.set(0); };
 
     return (
         <motion.a
@@ -28,9 +25,8 @@ const MagneticButton = ({ children, className = "", href = "#", onClick }) => {
             style={{ x, y }}
             onMouseMove={handleMouseMove}
             onMouseLeave={reset}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className={`relative z-10 inline-flex items-center justify-center overflow-hidden transition-all duration-300 cursor-pointer ${className}`}
+            whileTap={{ scale: 0.97 }}
+            className={`relative z-10 inline-flex items-center justify-center cursor-pointer ${className}`}
         >
             {children}
         </motion.a>
