@@ -487,8 +487,8 @@ export default function App() {
               <div className="flex gap-6">
                 {[
                   { name: 'GitHub', href: 'https://github.com/hatim3310' },
-                  { name: 'LinkedIn', href: '#' },
-                  { name: 'Instagram', href: '#' },
+                  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/lamartihatim/' },
+                  { name: 'Instagram', href: 'https://www.instagram.com/laamarti_hatim/' },
                 ].map((s) => (
                   <a
                     key={s.name}
