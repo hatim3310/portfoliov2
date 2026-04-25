@@ -1,4 +1,5 @@
 export const projects = [
+    { title: "BDE EFET Hub", subtitle: "2026 — Management Platform", detail: "Next.js 15, Supabase, Framer Motion", image: "/assets/images/projects/bde_full.png", link: "https://bdeefet.vercel.app/" },
     { title: "F1 Analytics", subtitle: "2026 — Real-Time Dashboard", detail: "React, D3.js, API", image: "/assets/images/projects/f1analytics.png", link: "https://f1-velocity-analytics.vercel.app/" },
     { title: "DataInsight AI", subtitle: "2026 — Machine Learning", detail: "Python, Pandas, Streamlit", image: "/assets/images/projects/datainsight.png", link: "https://data-insight-ai-tau.vercel.app/" },
 ];

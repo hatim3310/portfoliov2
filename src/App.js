@@ -337,23 +337,23 @@ export default function App() {
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden">
                     <img
-                      src="/assets/images/projects/servhub.png"
-                      alt="ServHub"
+                      src="/assets/images/projects/bde.png"
+                      alt="BDE EFET Hub"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-base text-white">
-                      CEO & Founder — ServHub
+                      Lead Developer — BDE EFET Hub
                     </h3>
                     <p className="text-[13px] text-zinc-500 mt-0.5">
-                      Building a next-generation services platform connecting providers and clients.
+                      Plateforme de gestion d'élite pour le Bureau des Étudiants : Événements, E-sport & Analytics.
                     </p>
                   </div>
                 </div>
                 <a
-                  href="https://servvhub1.vercel.app"
+                  href="https://bdeefet.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[11px] font-mono text-zinc-500 hover:text-accent transition-colors cursor-pointer"
