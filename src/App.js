@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Copy, Check, ArrowDown, Code2, Brain, Server, Paintbrush } from 'lucide-react';
+import { ArrowUpRight, Copy, Check, ArrowDown, ChevronDown, Code2, Brain, Server, Paintbrush } from 'lucide-react';
 import { Analytics } from "@vercel/analytics/react";
 
 import AuroraBackground from './components/AuroraBackground';
@@ -77,14 +77,43 @@ const expertise = [
   },
 ];
 
+/* ─── FAQ Data for AEO (Answer Engine Optimization) ─── */
+const faqData = [
+  {
+    question: 'Qui est Hatim Lamarti ?',
+    answer: 'Hatim Lamarti est un Développeur Full Stack et Data Scientist basé à Casablanca, Maroc. Certifié IBM Data Science, il conçoit des applications web performantes avec React, Next.js et Python, ainsi que des solutions d\'Intelligence Artificielle sur mesure pour les entreprises.',
+  },
+  {
+    question: 'Quels services propose Hatim Lamarti ?',
+    answer: 'Hatim Lamarti propose le développement d\'applications web Full Stack (React, Next.js, Node.js), la création de solutions d\'Intelligence Artificielle et de Machine Learning (Python, TensorFlow), le déploiement cloud et DevOps (Docker, AWS), et le design d\'interfaces utilisateur (UI/UX) avec Figma et Tailwind CSS.',
+  },
+  {
+    question: 'Comment contacter un développeur web à Casablanca ?',
+    answer: 'Vous pouvez contacter Hatim Lamarti, développeur web basé à Casablanca, par email à hatimlamarti3@gmail.com, via LinkedIn (linkedin.com/in/lamartihatim), ou directement via la section contact sur son portfolio laamarti.space. Il est disponible pour des projets freelance et des collaborations.',
+  },
+  {
+    question: 'Quelles technologies maîtrise Hatim Lamarti ?',
+    answer: 'Hatim Lamarti maîtrise un large éventail de technologies : React, Next.js, Node.js, TypeScript pour le frontend et backend, Python, TensorFlow, Pandas pour la Data Science et l\'IA, PostgreSQL, MongoDB, Redis pour les bases de données, et Docker, AWS, Vercel, CI/CD pour le déploiement et le DevOps.',
+  },
+  {
+    question: 'Pourquoi choisir un développeur basé au Maroc ?',
+    answer: 'Choisir un développeur basé au Maroc offre plusieurs avantages : un fuseau horaire compatible avec l\'Europe (GMT+1), des compétences techniques de haut niveau à des tarifs compétitifs, une compréhension du marché francophone et arabophone, et une proximité géographique avec l\'Europe. Hatim Lamarti combine expertise internationale (certifications IBM, Google, Anthropic) et ancrage local à Casablanca.',
+  },
+];
+
 export default function App() {
   const [hoveredRow, setHoveredRow] = useState(null);
   const [copied, setCopied] = useState(false);
+  const [openFaq, setOpenFaq] = useState(null);
 
   const copyEmail = () => {
     navigator.clipboard.writeText("hatimlamarti3@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
   };
 
   return (
@@ -95,11 +124,12 @@ export default function App() {
         <AuroraBackground />
         <ScrollProgress />
         <Navbar />
+        <main role="main">
 
         {/* ═══════════════════════════════════
             HERO — Split Text Name Reveal
         ═══════════════════════════════════ */}
-        <section id="home" className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 max-w-[1100px] mx-auto">
+        <section id="home" aria-label="Accueil — Hatim Lamarti, Développeur Full Stack à Casablanca" className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 max-w-[1100px] mx-auto">
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -211,7 +241,7 @@ export default function App() {
         {/* ═══════════════════════════════════
             SELECTED WORKS — Visual Cards
         ═══════════════════════════════════ */}
-        <section id="work" className="px-6 md:px-12 lg:px-20 py-28 md:py-36 max-w-[1100px] mx-auto">
+        <section id="work" aria-label="Projets réalisés par Hatim Lamarti" className="px-6 md:px-12 lg:px-20 py-28 md:py-36 max-w-[1100px] mx-auto">
           {/* Section Header with reveal line */}
           <motion.div
             variants={sectionReveal}
@@ -258,7 +288,7 @@ export default function App() {
         {/* ═══════════════════════════════════
             EXPERTISE — Card Grid
         ═══════════════════════════════════ */}
-        <section id="expertise" className="px-6 md:px-12 lg:px-20 py-28 md:py-36 max-w-[1100px] mx-auto">
+        <section id="expertise" aria-label="Compétences et expertise technique" className="px-6 md:px-12 lg:px-20 py-28 md:py-36 max-w-[1100px] mx-auto">
           <motion.div
             variants={sectionReveal}
             initial="hidden"
@@ -369,7 +399,7 @@ export default function App() {
         {/* ═══════════════════════════════════
             CERTIFICATIONS
         ═══════════════════════════════════ */}
-        <section id="about" className="px-6 md:px-12 lg:px-20 pb-28 md:pb-36 max-w-[1100px] mx-auto">
+        <section id="about" aria-label="Certifications professionnelles" className="px-6 md:px-12 lg:px-20 pb-28 md:pb-36 max-w-[1100px] mx-auto">
           <motion.div
             variants={sectionReveal}
             initial="hidden"
@@ -408,9 +438,89 @@ export default function App() {
         </section>
 
         {/* ═══════════════════════════════════
+            FAQ — Answer Engine Optimization (AEO)
+        ═══════════════════════════════════ */}
+        <section id="faq" aria-label="Questions fréquentes" className="px-6 md:px-12 lg:px-20 pb-28 md:pb-36 max-w-[1100px] mx-auto">
+          <motion.div
+            variants={sectionReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            className="mb-6"
+          >
+            <span className="text-[11px] font-mono text-accent uppercase tracking-[0.15em] mb-3 block">
+              FAQ
+            </span>
+            <h2 className="font-heading font-bold text-3xl md:text-4xl tracking-[-0.02em] text-white">
+              Questions Fréquentes
+            </h2>
+          </motion.div>
+
+          <motion.div
+            variants={lineExpand}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            className="reveal-line mb-14"
+          />
+
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            className="space-y-3"
+          >
+            {faqData.map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="rounded-2xl border border-white/[0.06] bg-base-surface overflow-hidden transition-all duration-500 hover:border-white/[0.12]"
+              >
+                <button
+                  onClick={() => toggleFaq(i)}
+                  className="w-full flex items-center justify-between p-5 md:p-6 text-left cursor-pointer group"
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                >
+                  <h3 className="font-heading font-semibold text-base md:text-lg text-zinc-200 group-hover:text-white transition-colors duration-300 pr-4">
+                    {item.question}
+                  </h3>
+                  <motion.div
+                    animate={{ rotate: openFaq === i ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex-shrink-0"
+                  >
+                    <ChevronDown size={18} className="text-zinc-500 group-hover:text-accent transition-colors duration-300" />
+                  </motion.div>
+                </button>
+                <AnimatePresence initial={false}>
+                  {openFaq === i && (
+                    <motion.div
+                      id={`faq-answer-${i}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-5 md:px-6 pb-5 md:pb-6 text-[13px] md:text-sm text-zinc-400 leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+
+        </main>
+
+        {/* ═══════════════════════════════════
             FOOTER / CONTACT
         ═══════════════════════════════════ */}
-        <footer id="contact" className="relative border-t border-white/[0.06]">
+        <footer id="contact" aria-label="Contact — Hatim Lamarti" className="relative border-t border-white/[0.06]">
           <div className="max-w-[1100px] mx-auto px-6 md:px-12 lg:px-20 py-20 md:py-28">
             <motion.div
               initial={{ opacity: 0, y: 24 }}

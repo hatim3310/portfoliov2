@@ -1,0 +1,46 @@
+# https://laamarti.space — robots.txt
+# Portfolio de Hatim Lamarti — Développeur Full Stack & Data Scientist
+
+User-agent: *
+Allow: /
+Disallow: /static/js/
+Disallow: /static/css/
+
+# Sitemap
+Sitemap:        
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# AI Crawlers — Autoriser pour GEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
