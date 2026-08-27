@@ -19,7 +19,7 @@ const Marquee = ({ items = [], speed = 30 }) => {
                         key={i}
                         className="flex items-center gap-3 flex-shrink-0 select-none"
                     >
-                        <span className="text-[13px] md:text-[15px] font-heading font-medium text-zinc-500 tracking-tight transition-colors duration-300 group-hover:text-zinc-300">
+                        <span className="text-[13px] md:text-[15px] font-heading font-medium text-white/50 tracking-tight transition-colors duration-300 group-hover:text-white/80">
                             {item}
                         </span>
                         <span className="w-1 h-1 rounded-full bg-accent/40 flex-shrink-0" />

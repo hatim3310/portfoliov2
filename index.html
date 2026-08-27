@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hatim Lamarti — Full Stack & AI Engineer | Minimal Luxury Creative Studio</title>
+  <meta name="description"
+    content="Personal portfolio website of Hatim Lamarti. Full Stack Engineer, AI Engineer, and Data Science Specialist based in Casablanca, Morocco. Architectural digital products and high-performance web systems.">
+  <meta name="keywords"
+    content="Hatim Lamarti, Full Stack Engineer, AI Engineer, Data Science, Casablanca, Morocco, Next.js, React, Python, GSAP">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Fonts & Design System -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Version-Pinned CDN Animation Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="js/i18n.js"></script>
+</head>
+
+<body>
+
+  <!-- 1. CINEMATIC LOADER OVERLAY -->
+  <div id="loader-overlay" role="dialog" aria-label="Loading Portfolio" aria-modal="true">
+    <div class="loader-top">
+      <div class="logo-link">
+        <span class="logo-dot"></span>
+        <span>HATIM LAMARTI</span>
+      </div>
+      <span class="micro-label" data-i18n="loader.studio">STUDIO 2026 · CASABLANCA</span>
+    </div>
+    <div class="loader-center">
+      <div class="loader-title" data-i18n="loader.title">ARCHITECTURAL DIGITAL PRODUCTS</div>
+      <div class="loader-subtitle" data-i18n="loader.subtitle">Loading Minimal Luxury Choreography...</div>
+    </div>
+    <div class="loader-bottom">
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill"></div>
+      </div>
+      <div class="loader-counter">0%</div>
+    </div>
+  </div>
+
+  <!-- 2. ARCHITECTURAL GRID GUIDES -->
+  <div class="grid-guides" aria-hidden="true">
+    <div class="grid-guide-line"></div>
+    <div class="grid-guide-line"></div>
+    <div class="grid-guide-line"></div>
+    <div class="grid-guide-line"></div>
+  </div>
+
+  <!-- 3. HEADER & NAVIGATION -->
+  <header id="site-header" style="display: none;">
+    <div class="container header-inner">
+      <a href="#hero" class="logo-link" aria-label="Hatim Lamarti Home">
+        <span class="logo-dot"></span>
+        <span>HATIM LAMARTI</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#hero" class="nav-link active" data-i18n="nav.home">Home</a></li>
+          <li><a href="#manifesto" class="nav-link" data-i18n="nav.manifesto">Manifesto</a></li>
+          <li><a href="#orbit-scrub" class="nav-link" data-i18n="nav.studio">360° Studio</a></li>
+          <li><a href="#works" class="nav-link" data-i18n="nav.works">Works</a></li>
+          <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+          <li><a href="#certifications" class="nav-link" data-i18n="nav.certifications">Certifications</a></li>
+          <li><a href="#footer" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="fr.html" id="lang-toggle" class="lang-toggle" aria-label="Version française">
+          <span class="lang-toggle-label">FR</span>
+        </a>
+        <a href="#footer" class="btn-editorial btn-editorial-gold">
+          <span data-i18n="nav.cta">Get In Touch</span>
+          <span class="btn-arrow-chip">→</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-controls="nav-menu" aria-label="Toggle navigation menu"
+          aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- 4. HERO SECTION (#hero) -->
+    <section id="hero" aria-label="Hero Section">
+      <div class="hero-media-wrapper">
+        <video class="hero-media" autoplay muted loop playsinline poster="assets/manifesto-bg.jpg">
+          <source src="assets/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-vignette"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-main">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span data-i18n="hero.status">Casablanca, Morocco · Available for Selected Projects 2026</span>
+          </div>
+
+          <h1 class="display-xl hero-title" data-i18n="hero.title" data-i18n-html>
+            Building Intelligent <span class="editorial-italic">Digital Products</span> & AI Systems.
+          </h1>
+
+          <p class="body-lg hero-subtitle" data-i18n="hero.subtitle">
+            Full Stack Engineer & AI Specialist crafting high-performance web applications, real-time analytics
+            platforms, and neural data pipelines with mathematical precision.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#works" class="btn-editorial btn-editorial-gold">
+              <span data-i18n="hero.cta.works">Explore Featured Works</span>
+              <span class="btn-arrow-chip">↓</span>
+            </a>
+            <a href="#footer" class="btn-editorial">
+              <span data-i18n="hero.cta.project">Initiate Project</span>
+              <span class="btn-arrow-chip">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <div class="hero-aside-item">
+            <span class="micro-label hero-aside-label" data-i18n="hero.label.location">LOCATION & TIMEZONE</span>
+            <span class="body-base hero-aside-val" data-i18n="hero.val.location">Casablanca (GMT+1)</span>
+          </div>
+          <div class="hero-aside-item">
+            <span class="micro-label hero-aside-label" data-i18n="hero.label.discipline">PRIMARY DISCIPLINE</span>
+            <span class="body-base hero-aside-val" data-i18n="hero.val.discipline">Full Stack & AI Engineering</span>
+          </div>
+          <div class="hero-aside-item">
+            <span class="micro-label hero-aside-label" data-i18n="hero.label.metric">VERIFIED METRIC</span>
+            <span class="body-base hero-aside-val" data-i18n="hero.val.metric">20+ Production Projects</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. MANIFESTO SECTION (#manifesto) -->
+    <section id="manifesto" class="section-padding" aria-label="Manifesto Section">
+      <div class="manifesto-bg-wrapper">
+        <img src="assets/manifesto-bg.jpg" alt="Dark Architectural Slate Texture" class="manifesto-bg-img">
+      </div>
+
+      <div class="container manifesto-container">
+        <span class="micro-label" data-i18n="manifesto.label">EXPLICIT PHILOSOPHY</span>
+
+        <p class="manifesto-text" data-i18n="manifesto.text" data-i18n-html>
+          Software is not merely functional code; it is <span class="editorial-italic">architectural discipline</span>
+          written in dark obsidian canvas. I fuse ultra-refined editorial typography, low-latency API infrastructure,
+          and neural AI models into seamless digital experiences built to last.
+        </p>
+
+        <div class="manifesto-metrics">
+          <div class="manifesto-metric-card">
+            <span class="manifesto-metric-num" data-value="20" data-suffix="+">0+</span>
+            <span class="micro-label manifesto-metric-label" data-i18n="manifesto.metric.works">Completed Works</span>
+          </div>
+          <div class="manifesto-metric-card">
+            <span class="manifesto-metric-num" data-value="7" data-suffix="+">0+</span>
+            <span class="micro-label manifesto-metric-label" data-i18n="manifesto.metric.certs">Certifications</span>
+          </div>
+          <div class="manifesto-metric-card">
+            <span class="manifesto-metric-num" data-value="95" data-suffix="%">0%</span>
+            <span class="micro-label manifesto-metric-label" data-i18n="manifesto.metric.ibm">IBM Score</span>
+          </div>
+          <div class="manifesto-metric-card">
+            <span class="manifesto-metric-num" data-value="1000" data-suffix="+">0+</span>
+            <span class="micro-label manifesto-metric-label" data-i18n="manifesto.metric.commits">GitHub Commits</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SIGNATURE 360° ORBIT VIDEO SCRUB SECTION (#orbit-scrub) -->
+    <section id="orbit-scrub" aria-label="Interactive 360° Orbit Hardware Model">
+      <div class="orbit-pin-container">
+        <div class="orbit-video-wrapper">
+          <video class="orbit-video" muted playsinline preload="auto" poster="assets/stats-bg.jpg">
+            <source src="assets/orbit-360.mp4" type="video/mp4">
+          </video>
+          <canvas class="orbit-canvas-fallback" width="1280" height="720"></canvas>
+
+          <!-- SVG Target Dots -->
+          <div class="orbit-target-dot" data-stop="0" style="top: 25%; left: 22%;"></div>
+          <div class="orbit-target-dot" data-stop="1" style="top: 30%; right: 22%;"></div>
+          <div class="orbit-target-dot" data-stop="2" style="bottom: 30%; left: 25%;"></div>
+          <div class="orbit-target-dot" data-stop="3" style="bottom: 25%; right: 25%;"></div>
+
+          <!-- Editorial Annotation Cards -->
+          <div class="orbit-annotation" data-stop="0">
+            <div class="annotation-num" data-i18n="orbit.ann1.num">01 // CHASSIS ARCHITECTURE</div>
+            <div class="annotation-title" data-i18n="orbit.ann1.title">Matte Titanium Structure</div>
+            <div class="annotation-desc" data-i18n="orbit.ann1.desc">Precision-milled dark slate chassis with chamfered heat dissipation vents.
+            </div>
+          </div>
+
+          <div class="orbit-annotation" data-stop="1">
+            <div class="annotation-num" data-i18n="orbit.ann2.num">02 // NEURAL PIPELINE</div>
+            <div class="annotation-title" data-i18n="orbit.ann2.title">Claude 3.5 Sonnet Integration</div>
+            <div class="annotation-desc" data-i18n="orbit.ann2.desc">Low-latency model inference bound to edge Supabase database clusters.</div>
+          </div>
+
+          <div class="orbit-annotation" data-stop="2">
+            <div class="annotation-num" data-i18n="orbit.ann3.num">03 // TELEMETRY CORE</div>
+            <div class="annotation-title" data-i18n="orbit.ann3.title">Real-Time Data Streams</div>
+            <div class="annotation-desc" data-i18n="orbit.ann3.desc">Sub-millisecond WebSockets handling high-frequency telemetry matrices.</div>
+          </div>
+
+          <div class="orbit-annotation" data-stop="3">
+            <div class="annotation-num" data-i18n="orbit.ann4.num">04 // EXPLICIT RELIABILITY</div>
+            <div class="annotation-title" data-i18n="orbit.ann4.title">100% Deterministic State</div>
+            <div class="annotation-desc" data-i18n="orbit.ann4.desc">Strict type safety across full-stack Next.js and Python microservices.</div>
+          </div>
+        </div>
+
+        <div class="orbit-progress-bar">
+          <div class="orbit-progress-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FEATURED WORKS BENTO GRID SECTION (#works) -->
+    <section id="works" class="section-padding" aria-label="Featured Works">
+      <div class="container">
+        <div class="works-header">
+          <div>
+            <span class="micro-label" data-i18n="works.label">CURATED SELECTION</span>
+            <h2 class="display-lg" data-i18n="works.title">Featured Works & Case Studies</h2>
+          </div>
+          <p class="body-base" style="max-width: 440px;" data-i18n="works.desc">
+            Four production digital platforms engineered with scalable full-stack architectures, real-time data
+            visualizers, and AI intelligence.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Card 1: BDE EFET Hub (2/3 width) -->
+          <article class="bento-card bento-item-1" data-project-id="bde-hub" tabindex="0" role="button"
+            aria-label="View BDE EFET Hub Case Details">
+            <div class="bento-card-media">
+              <img src="assets/project-bde-hub.jpg" alt="BDE EFET Hub UI Preview" loading="lazy">
+            </div>
+            <div class="bento-card-content">
+              <div class="bento-tags">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Supabase</span>
+              </div>
+              <h3 class="bento-card-title" data-i18n="works.bde.title">BDE EFET Hub — Student Management Portal</h3>
+              <p class="bento-card-desc" data-i18n="works.bde.desc">
+                Centralized management and event coordination platform for EFET students. Features automated enrollment
+                validation, interactive dashboards, and role-based access.
+              </p>
+              <div class="bento-card-footer">
+                <span class="micro-label" data-i18n="works.bde.label">STUDENT PORTAL · 2026</span>
+                <button class="btn-editorial" data-project-id="bde-hub" tabindex="-1">
+                  <span data-i18n="works.cta">View Case Details</span>
+                  <span class="btn-arrow-chip">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: F1 Velocity Analytics (1/3 width) -->
+          <article class="bento-card bento-item-2" data-project-id="f1-velocity" tabindex="0" role="button"
+            aria-label="View F1 Velocity Analytics Case Details">
+            <div class="bento-card-media">
+              <img src="assets/project-f1-velocity.jpg" alt="F1 Velocity Analytics UI Preview" loading="lazy">
+            </div>
+            <div class="bento-card-content">
+              <div class="bento-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">D3.js</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">FastAPI</span>
+              </div>
+              <h3 class="bento-card-title" data-i18n="works.f1.title">F1 Velocity Analytics — Telemetry Engine</h3>
+              <p class="bento-card-desc" data-i18n="works.f1.desc">
+                Real-time Formula 1 racing telemetry visualizer processing speed vectors, brake points, and lap time
+                deltas.
+              </p>
+              <div class="bento-card-footer">
+                <span class="micro-label" data-i18n="works.f1.label">REAL-TIME DATA · 2026</span>
+                <button class="btn-editorial" data-project-id="f1-velocity" tabindex="-1">
+                  <span data-i18n="works.cta">View Case Details</span>
+                  <span class="btn-arrow-chip">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: DataInsight AI (1/2 width) -->
+          <article class="bento-card bento-item-3" data-project-id="datainsight-ai" tabindex="0" role="button"
+            aria-label="View DataInsight AI Case Details">
+            <div class="bento-card-media">
+              <img src="assets/project-datainsight.jpg" alt="DataInsight AI Pipeline UI Preview" loading="lazy">
+            </div>
+            <div class="bento-card-content">
+              <div class="bento-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Claude 3.5 Sonnet</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Tailwind</span>
+              </div>
+              <h3 class="bento-card-title" data-i18n="works.datainsight.title">DataInsight AI — Neural Data Pipeline Canvas</h3>
+              <p class="bento-card-desc" data-i18n="works.datainsight.desc">
+                AI analytics platform enabling interactive node-based data flow creation, automated anomaly detection,
+                and automated report synthesis.
+              </p>
+              <div class="bento-card-footer">
+                <span class="micro-label" data-i18n="works.datainsight.label">AI PLATFORM · 2026</span>
+                <button class="btn-editorial" data-project-id="datainsight-ai" tabindex="-1">
+                  <span data-i18n="works.cta">View Case Details</span>
+                  <span class="btn-arrow-chip">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: ServHub KhedmatMaroc (1/2 width) -->
+          <article class="bento-card bento-item-4" data-project-id="servhub" tabindex="0" role="button"
+            aria-label="View ServHub Case Details">
+            <div class="bento-card-media">
+              <img src="assets/project-servhub.jpg" alt="ServHub Moroccan Service Marketplace UI Preview"
+                loading="lazy">
+            </div>
+            <div class="bento-card-content">
+              <div class="bento-tags">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Supabase</span>
+                <span class="tech-tag">Stripe</span>
+                <span class="tech-tag">Vercel</span>
+              </div>
+              <h3 class="bento-card-title" data-i18n="works.servhub.title">ServHub (KhedmatMaroc) — Moroccan Service Marketplace</h3>
+              <p class="bento-card-desc" data-i18n="works.servhub.desc">
+                Architectural service marketplace connecting verified Moroccan artisans and engineers across Casablanca,
+                Rabat, Marrakech, and Tangier.
+              </p>
+              <div class="bento-card-footer">
+                <span class="micro-label" data-i18n="works.servhub.label">MARKETPLACE · 2026</span>
+                <button class="btn-editorial" data-project-id="servhub" tabindex="-1">
+                  <span data-i18n="works.cta">View Case Details</span>
+                  <span class="btn-arrow-chip">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. TECH ARCHITECTURE EXPLAINER SECTION (#explainer-flow) -->
+    <section id="explainer-flow" class="section-padding" aria-label="Tech Architecture Explainer">
+      <div class="container">
+        <div class="explainer-grid">
+          <div class="explainer-media-box">
+            <video autoplay muted loop playsinline poster="assets/stats-bg.jpg">
+              <source src="assets/explainer-flow.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="explainer-steps">
+            <span class="micro-label" data-i18n="explainer.label">SYSTEM ARCHITECTURE</span>
+            <h2 class="section-title" data-i18n="explainer.title">Multi-shot Neural Data Pipeline</h2>
+
+            <div class="explainer-step-card active">
+              <div class="step-num" data-i18n="explainer.step1.num">01 // MACRO NODE PAN</div>
+              <h4 class="bento-card-title" style="font-size: 1.125rem;" data-i18n="explainer.step1.title">Data Ingestion & Ingestion Vectorization</h4>
+              <p class="body-base" data-i18n="explainer.step1.desc">Ingests multi-source structured & unstructured data streams, performing real-time
+                vector embeddings.</p>
+            </div>
+
+            <div class="explainer-step-card">
+              <div class="step-num" data-i18n="explainer.step2.num">02 // DATA BUS TRANSIT</div>
+              <h4 class="bento-card-title" style="font-size: 1.125rem;" data-i18n="explainer.step2.title">High-Speed Titanium Bus Conduits</h4>
+              <p class="body-base" data-i18n="explainer.step2.desc">Transfers tokenized telemetry across distributed microservices with sub-5ms latency.
+              </p>
+            </div>
+
+            <div class="explainer-step-card">
+              <div class="step-num" data-i18n="explainer.step3.num">03 // WIDE NEURAL ENGINE</div>
+              <h4 class="bento-card-title" style="font-size: 1.125rem;" data-i18n="explainer.step3.title">Automated Reasoning & Insight Synthesis</h4>
+              <p class="body-base" data-i18n="explainer.step3.desc">Synthesizes predictive metrics and automated report outputs via Anthropic Claude
+                model APIs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. ABOUT & EDITORIAL PORTRAIT SECTION (#about) -->
+    <section id="about" class="section-padding" aria-label="About Hatim Lamarti">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-portrait-wrapper">
+            <img src="assets/hatim-portrait.jpg" alt="Editorial Portrait of Hatim Lamarti" class="about-portrait-img">
+          </div>
+
+          <div class="about-content">
+            <span class="micro-label" data-i18n="about.label">BIOGRAPHY & EXPERTISE</span>
+            <h2 class="display-lg">Hatim Lamarti</h2>
+            <p class="body-lg" style="color: var(--accent-gold); font-style: italic;" data-i18n="about.role">
+              Full Stack Engineer | AI Engineer | Data Science Specialist
+            </p>
+
+            <p class="about-bio" data-i18n="about.bio">
+              Based in Casablanca, Morocco, I specialize in engineering high-end web platforms and intelligent AI
+              solutions. My approach combines rigorous architectural discipline with modern frontend frameworks
+              (Next.js, React, Tailwind CSS) and robust backend systems (Python, Node.js, PostgreSQL, Docker, MCP).
+            </p>
+
+            <div>
+              <span class="micro-label" style="margin-bottom: var(--space-3); display: block;" data-i18n="about.stack.label">CORE STACK & TOOLS</span>
+              <div class="skills-list">
+                <span class="skill-badge">Next.js</span>
+                <span class="skill-badge">React</span>
+                <span class="skill-badge">TypeScript</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">Tailwind CSS</span>
+                <span class="skill-badge">Node.js</span>
+                <span class="skill-badge">PostgreSQL</span>
+                <span class="skill-badge">Supabase</span>
+                <span class="skill-badge">Docker</span>
+                <span class="skill-badge">Claude API</span>
+                <span class="skill-badge">MCP</span>
+                <span class="skill-badge">GSAP 3</span>
+              </div>
+            </div>
+
+            <div style="margin-top: var(--space-4);">
+              <a href="https://github.com/hatim3310" target="_blank" rel="noopener noreferrer" class="btn-editorial">
+                <span data-i18n="about.github">Explore GitHub Profile</span>
+                <span class="btn-arrow-chip">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. CERTIFICATIONS & STATS SECTION (#certifications) -->
+    <section id="certifications" aria-label="Certifications and Statistics">
+      <div class="stats-bg-layer">
+        <img src="assets/stats-bg.jpg" alt="Stats Grid Pattern Backdrop" class="stats-bg-img">
+      </div>
+
+      <div class="container">
+        <!-- 4-Column Counter Grid -->
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-value">20+</span>
+            <span class="stat-label body-base" data-i18n="certs.stat.projects">Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">7+</span>
+            <span class="stat-label body-base" data-i18n="certs.stat.certs">Certifications</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">95%</span>
+            <span class="stat-label body-base" data-i18n="certs.stat.ibm">IBM Science Score</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">1000+</span>
+            <span class="stat-label body-base" data-i18n="certs.stat.commits">GitHub Commits</span>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: var(--space-8);">
+          <span class="micro-label" data-i18n="certs.label">VERIFIED CREDENTIALS</span>
+          <h3 class="section-title" data-i18n="certs.title">Professional Certifications Marquee</h3>
+        </div>
+      </div>
+
+      <!-- Dual-Track Horizontal Marquee -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track">
+          <!-- Track Items (Duplicated for infinite seamless marquee loop) -->
+          <div class="cert-card">
+            <div class="cert-icon">IBM</div>
+            <div class="cert-info">
+              <span class="cert-name">IBM Data Science Professional</span>
+              <span class="cert-issuer">IBM · Score 95%</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ALX</div>
+            <div class="cert-info">
+              <span class="cert-name">ALX AI Career Program</span>
+              <span class="cert-issuer">ALX Ventures</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ANT</div>
+            <div class="cert-info">
+              <span class="cert-name">Anthropic Claude 101</span>
+              <span class="cert-issuer">Anthropic</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ANT</div>
+            <div class="cert-info">
+              <span class="cert-name">Claude Code in Action</span>
+              <span class="cert-issuer">Anthropic</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ANT</div>
+            <div class="cert-info">
+              <span class="cert-name">Intro to MCP (Model Context)</span>
+              <span class="cert-issuer">Anthropic</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ANT</div>
+            <div class="cert-info">
+              <span class="cert-name">Anthropic AI Fluency</span>
+              <span class="cert-issuer">Anthropic</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">GOO</div>
+            <div class="cert-info">
+              <span class="cert-name">Google Analytics Certification</span>
+              <span class="cert-issuer">Google Skillshop</span>
+            </div>
+          </div>
+
+          <!-- Duplicate Set for Marquee Loop -->
+          <div class="cert-card">
+            <div class="cert-icon">IBM</div>
+            <div class="cert-info">
+              <span class="cert-name">IBM Data Science Professional</span>
+              <span class="cert-issuer">IBM · Score 95%</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ALX</div>
+            <div class="cert-info">
+              <span class="cert-name">ALX AI Career Program</span>
+              <span class="cert-issuer">ALX Ventures</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ANT</div>
+            <div class="cert-info">
+              <span class="cert-name">Anthropic Claude 101</span>
+              <span class="cert-issuer">Anthropic</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ANT</div>
+            <div class="cert-info">
+              <span class="cert-name">Claude Code in Action</span>
+              <span class="cert-issuer">Anthropic</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ANT</div>
+            <div class="cert-info">
+              <span class="cert-name">Intro to MCP (Model Context)</span>
+              <span class="cert-issuer">Anthropic</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">ANT</div>
+            <div class="cert-info">
+              <span class="cert-name">Anthropic AI Fluency</span>
+              <span class="cert-issuer">Anthropic</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">GOO</div>
+            <div class="cert-info">
+              <span class="cert-name">Google Analytics Certification</span>
+              <span class="cert-issuer">Google Skillshop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FOOTER SECTION (#footer) -->
+    <footer id="footer" aria-label="Site Footer">
+      <div class="footer-bg-media">
+        <video autoplay muted loop playsinline poster="assets/manifesto-bg.jpg">
+          <source src="assets/footer-bg.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="container footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="micro-label" data-i18n="footer.label">INITIATE COLLABORATION</span>
+            <h2 class="display-lg" data-i18n="footer.title" data-i18n-html>Let's Build Something <span class="editorial-italic">Extraordinary</span>.</h2>
+            <p class="body-lg" data-i18n="footer.desc">
+              Available for selected full-stack engineering contracts, AI architecture consulting, and custom web
+              products in 2026.
+            </p>
+            <div>
+              <a href="mailto:contact@hatimlamarti.space" class="btn-editorial btn-editorial-gold">
+                <span>contact@hatimlamarti.space</span>
+                <span class="btn-arrow-chip">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links-col">
+            <span class="micro-label footer-col-title" data-i18n="footer.channels">OFFICIAL CHANNELS</span>
+            <ul class="footer-link-list">
+              <li><a href="https://hatimlamarti.space" target="_blank" rel="noopener noreferrer" data-i18n="footer.website">Official Website ↗</a>
+              </li>
+              <li><a href="https://github.com/hatim3310" target="_blank" rel="noopener noreferrer" data-i18n="footer.github">GitHub Profile ↗</a>
+              </li>
+              <li><a href="https://linkedin.com/in/lamartihatim" target="_blank" rel="noopener noreferrer" data-i18n="footer.linkedin">LinkedIn
+                  Profile ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <span class="micro-label footer-col-title" data-i18n="footer.location.label">LOCATION & TIMEZONE</span>
+            <p class="body-base" data-i18n="footer.location.city">Casablanca, Morocco</p>
+            <p class="body-base" style="color: var(--text-muted);" data-i18n="footer.location.tz">GMT +1 (Western European Time)</p>
+            <p class="body-base" style="color: var(--accent-gold); margin-top: var(--space-2);" data-i18n="footer.location.mode">Remote & On-Site</p>
+          </div>
+        </div>
+
+        <!-- Oversized Wordmark Marquee at Bottom -->
+        <div class="footer-wordmark-container">
+          <div class="footer-wordmark">HATIM LAMARTI</div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <span data-i18n="footer.copyright">© 2026 Hatim Lamarti. All rights reserved.</span>
+          <span data-i18n="footer.tagline">Minimal Luxury Editorial Creative Studio</span>
+          <span data-i18n="footer.tech">Designed & Built with GSAP + Lenis</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- 12. PROJECT DETAIL MODAL -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-container">
+      <button class="modal-close" aria-label="Close dialog">×</button>
+      <span class="micro-label" data-i18n="modal.label">CASE DETAILS</span>
+      <h3 id="modal-title" class="section-title">Project Title</h3>
+      <p id="modal-desc" class="body-lg">Project description...</p>
+      <div id="modal-stack" class="metric-mono" style="color: var(--accent-gold);">Stack: ...</div>
+      <div style="margin-top: var(--space-4);">
+        <a href="https://github.com/hatim3310" target="_blank" rel="noopener noreferrer"
+          class="btn-editorial btn-editorial-gold">
+          <span data-i18n="modal.github">View Source Code on GitHub</span>
+          <span class="btn-arrow-chip">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Main JS Choreography -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

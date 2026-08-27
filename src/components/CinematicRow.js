@@ -19,14 +19,14 @@ const CinematicRow = ({ title, subtitle, detail, index, isCert = false, setHover
                     <span className="font-mono text-zinc-700 text-[11px] tracking-widest tabular-nums w-6">
                         {String(index + 1).padStart(2, '0')}
                     </span>
-                    <h3 className="font-heading font-medium text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] tracking-tight text-zinc-400 transition-all duration-500 group-hover:text-white group-hover:translate-x-1.5">
+                    <h3 className="font-heading font-medium text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] tracking-tight text-white/70 transition-all duration-500 group-hover:text-white group-hover:translate-x-1.5">
                         {title}
                     </h3>
                 </div>
 
                 {/* Right: Subtitle + Tags + Arrow */}
                 <div className="flex items-center gap-4 md:gap-5 pl-12 md:pl-0">
-                    <span className="text-[13px] font-body text-zinc-600 md:min-w-[120px] md:text-right transition-colors group-hover:text-zinc-400">
+                    <span className="text-[13px] font-body text-white/40 md:min-w-[120px] md:text-right transition-colors group-hover:text-white/70">
                         {subtitle}
                     </span>
 
@@ -34,7 +34,7 @@ const CinematicRow = ({ title, subtitle, detail, index, isCert = false, setHover
                         {detail && detail.split(',').map((tag, i) => (
                             <span
                                 key={i}
-                                className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-medium text-zinc-500 bg-white/[0.03] border border-white/[0.06] transition-all duration-300 group-hover:text-accent group-hover:border-accent/20 group-hover:bg-accent-soft"
+                                className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-medium text-white/50 bg-white/[0.03] border border-white/[0.06] transition-all duration-300 group-hover:text-accent group-hover:border-accent/20 group-hover:bg-accent-soft"
                             >
                                 {tag.trim()}
                             </span>

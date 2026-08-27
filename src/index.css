@@ -4,18 +4,44 @@
 
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 
 @layer base {
   html {
-    @apply bg-base text-zinc-200;
+    @apply bg-base text-white/90;
     scroll-behavior: smooth;
   }
+
+/* ─── Lenis Smooth Scroll CSS ─── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
 
   body {
     @apply antialiased;
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-serif {
+    font-family: 'DM Serif Display', Georgia, serif;
   }
 
   ::selection {
@@ -53,6 +79,120 @@
 
 section {
   scroll-margin-top: 100px;
+}
+
+@media (min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
+  .showcase-track {
+    margin-left: 0;
+    margin-right: 0;
+    width: max-content;
+    gap: 8vw;
+    overflow: visible;
+    padding-left: 0;
+    padding-right: 0;
+    scroll-snap-type: none;
+    will-change: transform;
+  }
+
+  .showcase-card {
+    width: calc(100vw - 10rem);
+  }
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  background: #e7eefb;
+  color: #080b12;
+  padding: 0.75rem 1rem;
+  font: 600 0.75rem/1 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #5b8cff;
+  outline-offset: 3px;
+}
+
+.hero-grid-lines {
+  opacity: 0.45;
+  background-image:
+    linear-gradient(rgba(117, 163, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(117, 163, 255, 0.12) 1px, transparent 1px);
+  background-size: 25vw 25vh;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+.hero-grid::before,
+.hero-grid::after {
+  content: '';
+  position: absolute;
+  z-index: 25;
+  width: 1rem;
+  height: 1rem;
+  border-left: 1px solid rgba(143, 178, 255, 0.6);
+  border-top: 1px solid rgba(143, 178, 255, 0.6);
+}
+
+.hero-grid::before {
+  left: 0.8rem;
+  top: 0.8rem;
+}
+
+.hero-grid::after {
+  right: 0.8rem;
+  bottom: 0.8rem;
+  transform: rotate(180deg);
+}
+
+.hero-nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 220ms ease;
+}
+
+.hero-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 1px;
+  background: #78a4ff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 260ms ease;
+}
+
+.hero-nav-link:hover,
+.hero-nav-link:focus-visible {
+  color: #fff;
+}
+
+.hero-nav-link:hover::after,
+.hero-nav-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ═══════════════════════════════════════

@@ -1,0 +1,76 @@
+{
+  "responsiveness": [
+    {
+      "test": "Mobile Navigation Toggle CSS Display",
+      "pass": false,
+      "error": "CRITICAL: .mobile-nav-toggle has display:none globally, and NO @media query enables display: flex/block on mobile viewports (< 768px)."
+    },
+    {
+      "test": "Mobile Navigation Menu Active CSS Styles",
+      "pass": false,
+      "error": "CRITICAL: .nav-menu has no mobile breakpoint styling and no .nav-menu.active rules in style.css. Nav items stay in inline flex desktop bar on 360px viewport."
+    },
+    {
+      "test": "Global .btn-editorial 100% width on 480px",
+      "pass": true
+    }
+  ],
+  "scriptLoading": [
+    {
+      "test": "GSAP 3 CDN inclusion",
+      "pass": true
+    },
+    {
+      "test": "ScrollTrigger CDN inclusion",
+      "pass": true
+    },
+    {
+      "test": "Lenis CDN inclusion",
+      "pass": true
+    },
+    {
+      "test": "SplitText CDN inclusion",
+      "pass": false,
+      "error": "SplitText plugin script tag is MISSING from index.html head! SplitText character reveal will fail at runtime."
+    },
+    {
+      "test": "Font loading wait redundancy check",
+      "pass": true,
+      "note": "document.fonts.ready called 2 times (outer wrapper + initManifestoReveal). Redundant nested promise waits present."
+    }
+  ],
+  "fallbacks": [
+    {
+      "test": "?noloader URL parameter handling",
+      "pass": true,
+      "note": "Strict check for noloader=true implemented."
+    },
+    {
+      "test": "Orbit 360 Video Canvas Fallback",
+      "pass": true,
+      "note": "Canvas element and drawFallbackFrame procedure defined."
+    },
+    {
+      "test": "prefers-reduced-motion CSS rules",
+      "pass": true,
+      "note": "Reduced motion media query presents resets for animations and orbit section."
+    }
+  ],
+  "accessibility": [
+    {
+      "test": "Heading Hierarchy Levels",
+      "pass": false,
+      "error": "Skipped heading level from <h2> (\"Multi-shot Neural Data Pipelin\") to <h4> (\"Data Ingestion & Ingestion Vec\")"
+    },
+    {
+      "test": "Modal Focus Trap & Focus Return",
+      "pass": false,
+      "error": "ACCESSIBILITY BUG: project-modal lacks focus trapping (tab index constraint) and does not return focus to trigger element upon closing."
+    },
+    {
+      "test": "Interactive Bento Card Keyboard Accessibility",
+      "pass": false,
+      "error": "4 <article class=\"bento-card\"> elements have data-project-id click listeners but lack tabindex=\"0\" and keyboard listener (Enter/Space), preventing keyboard navigation."
+    }
+  ]
+}

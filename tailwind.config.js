@@ -10,15 +10,16 @@ module.exports = {
       },
       colors: {
         base: {
-          DEFAULT: '#09090b',
-          surface: '#111113',
-          surface2: '#191919',
-          border: 'rgba(255,255,255,0.06)',
+          DEFAULT: '#07090D',
+          surface: '#0B0E14',
+          surface2: '#111622',
+          border: 'rgba(255,255,255,0.1)',
         },
+        platinum: '#ECECEE',
         accent: {
-          DEFAULT: '#3b82f6',
-          soft: 'rgba(59,130,246,0.08)',
-          hover: '#60a5fa',
+          DEFAULT: '#5B8CFF',
+          soft: 'rgba(91,140,255,0.12)',
+          hover: '#8FB2FF',
         },
       },
       animation: {
